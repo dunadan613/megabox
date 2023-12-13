@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEET PLAY SHARE, 메가박스(가품)</title>
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/font_Noto_Sans_KR(no_italic).css">
+  <link rel="stylesheet" href="./assets/css/skip_menu.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+    :root{
+      font-family: 'Noto Sans KR',sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      color: #333;
+      --main-color: #14144b;
+      --bg-color-black:#0e0a20;
+      --bg-color-yellow:#ffeb01;
+      --bg-color-header:#120d3c;
+      --bg-color-section:#0e0a20;
+      --color-cyan:#14b9cb;
+      --color-light-text:#9899a8;
+      --color-subtit:#201248;
+      --color-special-text:#797191;
+      --color-nav-text:#666;
+      --color-btn-bottom-text:#2b2c41;
+    }
+    ::-webkit-scrollbar{}
+    #wrap{
+      overflow: hidden;
+      position: relative;
+    }
+    #wrap::before{
+      content: '';
+      display: block;
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      bottom: -200px;
+      left: -200px;
+      background-image: url(./assets/images/section1_bg.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      /* background-attachment: fixed; */
+      filter: blur(300px);
+    }
+    #wrap::after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      /* background: repeating-linear-gradient(transparent transparent 1px, rgba(0,0,0,1) 1px, rgba(0,0,0,1) 2px); */
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .container{
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    #main-ad{
+      display: none;
+      background-color: #d1dad5;
+      position: relative;
+      z-index: 2;
+    }
+    #main-ad .container{
+      display: flex;
+      justify-content: center;
+    }
+    #main-ad .imgbox{
+      margin: 0 auto;
+    }
+    #main-ad img{
+      max-width: 1100px;
+    }
+    #btn-main-ad-close{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      font-size: 0;
+      cursor: pointer;
+    }
+    #btn-main-ad-close::before,
+    #btn-main-ad-close::after{
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      width: 15px;
+      height: 1px;
+      background-color: white;
+      top: 50%;
+      left: 50%;
+    }
+    #btn-main-ad-close::before{
+      transform: translate(-50%,-50%) rotate(45deg);
+    }
+    #btn-main-ad-close::after{
+      transform: translate(-50%,-50%) rotate(135deg);
+    }
+    .header{
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 2;
+      background-color: var(--bg-color-header);
+    }
+    .header .logo a{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      display: block;
+      text-indent: -999999px;
+      width: 120px;
+      height: 55px;
+      background-image: url(./assets/m-images/m-logo-white.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 110px 48px;
+    }
+    .header .mobile-nav{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 55px;
+    }
+    .mobile-nav .imgbox{
+      width: 30px;
+    }
+    .mobile-nav .h-left{
+      margin-left: 15px;
+    }
+    .mobile-nav .h-right{
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 15px;
+    }
+    .mobile-nav .h-right .imgbox:first-of-type{
+      margin-right: 4px;
+    }
+    .login-form,
+    .nav-form{
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+    }
+    #mobile-btn-bottom{
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    @media(min-width:1280px){
+      #main-ad{
+        display: block;
+      }
+      .header{
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      .header .mobile-nav{
+        display: none;
+      }
+      .header .logo a{
+        width: 140px;
+        height: 47px;
+        background-image: url(./assets/images/logo-white.png);
+      }
+      .login-form{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+      #mobile-btn-bottom{
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="skip-menu">
+    <a href="#main">본문 바로가기</a>
+  </div>
+  <section id="wrap">
+  <!-- wrap::after z-index:1 -->
+
+    <!-- main-ad z-index:2 -->
+    <!-- btn-main-ad-close z-index:1 -->
+
+    <header id="header" class="header"><!-- z-index:2 -->
+      <div class="container">
+        <h1 class="logo" title=""><a href="./index.html">MEET PLAY SHARE, 메가박스</a></h1>
+        <div class="row mobile-nav">
+          <div class="h-left">
+            <div id="ticket" class="imgbox"><a href="#"><img src="./assets/m-images/ico-m-ticket.png" alt=""></a></div>
+          </div>
+          <div class="h-right">
+            <div id="btn-alarm" class="imgbox"><a href="#"><img src="./assets/m-images/ico-alarm.png" alt=""></a></div>
+            <div id="btn-nav" class="imgbox"><a href="#"><img src="./assets/m-images/ico-m-burger.png" alt=""></a></div>
+          </div>
+        </div>
+        <div id="nav-form" class="nav-form">
+          <div id="btn-nav-form-close"></div>
+        </div>
+      </div>
+    </header>
+    <div id="login-form" class="login-form">
+      <div id="btn-login-form-close"></div>
+    </div>
+
+    <main id="main" class="main"></main>
+
+
+    <footer id="footer" class="footer"></footer>
+
+    <div id="mobile-btn-bottom"></div>
+  </section>
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // --------------- 함수구역 ---------------
+    function fnAddMainAd(){
+      if($(window).width()>=1280){
+        if($('#main-id').length){
+          //do nothing
+        }
+        else{
+          $('#wrap').prepend('<section id="main-ad"><div class="container"><div class="imgbox"><a href="#"><img src="./assets/images/banner-top.jpg" alt="광고"></a></div><div id="btn-main-ad-close" class="btn">닫기</div></div></section>');
+        }
+      }
+    }
+    function fnRemoveMainAd(){
+      $('section#main-ad').remove();
+    }
+
+    function fnDisplaySet(el,opt){
+      el.style.display=opt;
+    }
+    // --------------- 함수구역 끝 ---------------
+
+
+    // --------------- 문서로드 이벤트 ---------------
+    window.onload=function(){
+
+      // --------------- 위쪽 광고 제어 ---------------
+      fnAddMainAd();
+      const mainAd=document.getElementById('main-ad');
+      const btnCloseMainAd=document.getElementById('btn-main-ad-close');
+      btnCloseMainAd.onclick=function(){
+        fnRemoveMainAd();
+      }
+      // --------------- 위쪽 광고 제어 끝 ---------------
+
+    }
+    // --------------- 문서로드 이벤트 끝 ---------------
+
+
+    // --------------- 리사이즈 이벤트 ---------------
+    window.onresize=function(){
+      
+    }
+    // --------------- 리사이즈 이벤트 끝 ---------------
+
+
+    
+    
+    
+    
+
+
+    // --------------- swiper ---------------
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'vertical',
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+    // --------------- swiper end ---------------
+  </script>
+</body>
+</html>
