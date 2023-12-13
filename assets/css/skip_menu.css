@@ -1,9 +1,9 @@
 #skip-menu a{
   position: fixed;
-  left: 0;
+  left: 50%;
   top: 0;
   z-index: 2000;
-  transform: translate(0,-110%);
+  transform: translate(-50%,-110%);
   transition: 0.4s;
   padding: 1em 2em;
   background-color: black;
@@ -14,5 +14,5 @@
   display: inline-block;
 }
 #skip-menu a:focus{
-  transform: translate(0%,0%);
+  transform: translate(-50%,0%);
 }

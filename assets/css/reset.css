@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scrollbar-width: auto;
 }
 a{
   color: inherit;
@@ -15,9 +16,9 @@ h1,h2,h3,h4,h5,h6{
 strong{
   font-weight: inherit;
 }
-/* em,address{
+em,address{
   font-style: normal;
-} */
+}
 ::placeholder{
   font-family: inherit;
   font-weight: inherit;
