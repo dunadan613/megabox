@@ -63,6 +63,12 @@
       max-width: 1280px;
       margin: 0 auto;
     }
+    .container-grid{
+      display: grid;
+    }
+    .container-flex{
+      display: flex;
+    }
     #main-ad{
       display: none;
       background-color: #d1dad5;
@@ -157,6 +163,265 @@
       bottom: 0;
       left: 0;
       display: none;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1em 0;
+    }
+    .login-form .container,
+    .nav-form .container{
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      overflow: auto;
+      padding: 5em 0;
+    }
+    .nav-form .container{
+      padding: 0;
+    }
+    .nav-form{
+      background-image: url(./assets/m-images/bg_nav_form.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    .nav-form-top>div.container-flex{
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+    .nav-form-top h2{
+      font-weight: 700;
+      font-size: 1.4em;
+      color: white;
+      margin-bottom: 20px;
+      padding: 12px 0 0 18px;
+    }
+    .nav-form-top ul.icon{
+      justify-content: space-between;
+      margin: 15px 18px 0 0;
+    }
+    .nav-form-top li.imgbox{
+      width: 30px;
+      height: 30px;
+    }
+    .nav-form-top li.imgbox:first-child{
+      margin-right: 4px;
+    }
+    .nav-form-top .clearfix{
+      width: 100%;
+      margin: 15px 0 18px;
+      padding: 0 18px;
+      font-size: 1.15em;
+    }
+    .nav-form-top .clearfix span{
+      font-size: 0.8em;
+    }
+    .nav-form-top .clearfix span:nth-child(1){
+      position: relative;
+    }
+    .nav-form-top .clearfix span:nth-child(1)::after{
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 10px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-30%);
+      background-color: #5f5b82;
+    }
+    .nav-form-top .clearfix .c-cyan{
+      color: #77f2ff;
+      margin-right: 10px;
+      padding-right: 10px;
+    }
+    .nav-form-top .clearfix .c-white{
+      color: white;
+    }
+    .nav-form-mid{
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 40px 20px 20px 20px;
+      background-color: white;
+    }
+    .nav-form-mid h2{
+      font-weight: 700;
+      font-size: 0.9em;
+      padding: 0 5px;
+    }
+    .nav-form-mid ul.container-grid{
+      grid-template-columns: repeat(4,1fr);
+      column-gap: 10px;
+      row-gap: 15px;
+      justify-items: center;
+      padding: 1em;
+      font-size: 0.95em;
+      text-align: center;
+    }
+    .nav-form-mid ul.container-grid a{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+    .nav-form-mid ul.container-grid .imgbox{
+      width: 60px;
+      margin-bottom: 6px;
+      border-radius: 50%;
+      border: 1px solid #e0e0e0;
+      padding: 8px;
+    }
+    .nav-form-mid p.nav-notice{
+      margin-top: 270px;
+      padding: 1em;
+      /* padding-left: 30px; */
+      padding-bottom: 1.2em;
+      background-image: url(./assets/m-images/ico-rnb-notice.png);
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 24px;
+      background-color: #f1faff;
+      font-size: 0.9em;
+      text-indent: 20px;
+      color: var(--color-cyan);
+    }
+    .nav-form-mid>div.container-flex{
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .nav-form-mid ul.sns li.imgbox{
+      width: 42px;
+      margin-right: 10px;
+    }
+    .nav-form-mid ul.notice li{
+      color: #999999;
+      margin-left: 10px;
+      padding-left: 10px;
+      font-size: 0.85em;
+    }
+    .nav-form-bot{
+      width: 100%;
+      height: 100px;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgb(239, 240, 249);
+    }
+    .nav-form-bot .imgbox{
+      width: 320px;
+      margin: 0 auto;
+    }
+    .login-form .container{
+      display: grid;
+      background-color: white;
+    }
+    .login-form h2{
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      padding: 0.5em;
+      text-align: center;
+      background-color: white;
+      font-size: 1.2em;
+    }
+    .header .pc-nav{
+      display: none;
+    }
+    #btn-login-form-close{
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      left: auto;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      color: transparent;
+    }
+    #btn-login-form-close::before,
+    #btn-login-form-close::after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      border-radius: 10%;
+      background-color: var(--bg-color-black);
+    }
+    #btn-login-form-close::before{
+      transform: translate(-50%,-50%) rotate(45deg);
+    }
+    #btn-login-form-close::after{
+      transform: translate(-50%,-50%) rotate(135deg);
+    }
+    #login-section{
+      padding: 0 18px;
+    }
+    #login-section input{
+      margin: 0.5em 0;
+      padding: 1em 0;
+    }
+    #login-section input[placeholder]{
+      border-color: transparent;
+      border-bottom-color: #e0e0e0;
+      color: #e0e0e0;
+      font-size: 0.9em;
+    }
+    #login-section input::placeholder{
+      color: #e0e0e0;
+    }
+    #login-section .clearfix{
+      margin-top: 10px;
+    }
+    #login-section .clearfix input{
+      width: auto;
+      margin-right: 8px;
+    }
+    #login-section .clearfix a{
+      font-weight: 400;
+      color: #3d7db7;
+    }
+    #login-section .clearfix a span{
+      display: inline-block;
+      border: 1px solid #cccccc;
+      font-size: 0.7em;
+      color: #cccccc;
+      margin-left: 8px;
+      padding: 0 4px;
+    }
+    #login-section input[type='submit']{
+      margin: 35px 0 25px;
+      border: none;
+      background-color: #6437bf;
+      color: white;
+      font-weight: 300;
+      font-size: 1.1em;
+    }
+    #login-section .container-grid{
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
+      text-align: center;
+      padding: 0 30px;
+    }
+    #login-section .container-grid .imgbox{
+      width: 40px;
+    }
+    #login-section .login-sns{
+      margin: 30px;
+      padding: 0;
+      justify-items: space-between;
+    }
+    #login-ad{
+      padding: 0 18px;
+    }
+    #login-ad img{
+      margin: 0 auto;
     }
     #mobile-btn-bottom{
       position: fixed;
@@ -178,16 +443,28 @@
       .header .mobile-nav{
         display: none;
       }
+      .header .pc-nav{
+        display: block;
+      }
       .header .logo a{
         width: 140px;
         height: 47px;
         background-image: url(./assets/images/logo-white.png);
       }
-      .login-form{
-        position: absolute;
+      .login-form .container{
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
+        grid-template-columns: 1fr 1fr;
+      }
+      .login-form h2{
+        background-color: #503396;
+        color: white;
+        text-align: left;
+      }
+      #btn-login-form-close::before,
+      #btn-login-form-close::after{
+        background-color: white;
       }
       #mobile-btn-bottom{
         display: none;
@@ -216,15 +493,135 @@
             <div id="btn-alarm" class="imgbox"><a href="#"><img src="./assets/m-images/ico-alarm.png" alt=""></a></div>
             <div id="btn-nav" class="imgbox"><a href="#"><img src="./assets/m-images/ico-m-burger.png" alt=""></a></div>
           </div>
+          <div id="nav-form" class="nav-form">
+            <div class="container">
+              <div class="nav-form-top">
+                <div class="container-flex">
+                  <h2 id="nav-go-index"><a href="./index.html">로그인 해주세요 :&#41;</a></h2>
+                  <ul class="container-flex icon">
+                    <li class="imgbox"><a href="#"><img src="./assets/m-images/ico_set.png" alt=""></a></li>
+                    <li id="btn-nav-form-close" class="imgbox">
+                      <a href="#"><img src="./assets/m-images/ico_close_w.png" alt=""></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix">
+                    <span class="f-l c-cyan">로그인</span>
+                    <span class="f-l c-cyan">회원가입</span>
+                    <span class="f-r c-white">비회원 예매확인</span>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-form-mid">
+                <h2>QUICK MENU</h2>
+                <ul class="container-grid">
+                  <li>
+                    <a href="#">
+                      <div class="imgbox"><img src="./assets/m-images/rnb-ic-black-movie.png" alt=""></div>
+                      <p>영화별 예매</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="imgbox"><img src="./assets/m-images/rnb_ic_black_theater.png" alt=""></div>
+                      <p>극장별 예매</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="imgbox"><img src="./assets/m-images/rnb_ic_black_special.png" alt=""></div>
+                      <p>특별관 예매</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="imgbox"><img src="./assets/m-images/rnb_ic_private.png" alt=""></div>
+                      <p>더 부티크<br>프라이빗</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="imgbox"><img src="./assets/m-images/rnb_ic_event.png" alt=""></div>
+                      <p>이벤트</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="imgbox"><img src="./assets/m-images/rnb-ic-sale.png" alt=""></div>
+                      <p>제휴/할인</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="imgbox"><img src="./assets/m-images/rnb-ic-channeltalk.png" alt=""></div>
+                      <p>상담톡</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="imgbox"><img src="./assets/m-images/rnb_ic_goodsShop.png" alt=""></div>
+                      <p>메가굿즈샵</p>
+                    </a>
+                  </li>
+                </ul>
+                <p class="nav-notice">[공지] 메가박스 개인정보 처리방침 변경 안내</p>
+                <div class="nav-sns container-flex">
+                  <ul class="sns f-l container-flex">
+                    <li class="imgbox"><a href="#"><img src="./assets/m-images/sns-ico-m-facebook.png" alt=""></a></li>
+                    <li class="imgbox"><a href="#"><img src="./assets/m-images/sns-ico-m-youtube.png" alt=""></a></li>
+                    <li class="imgbox"><a href="#"><img src="./assets/m-images/sns-ico-m-insta.png" alt=""></a></li>
+                  </ul>
+                  <ul class="notice f-r container-flex">
+                    <li><a href="#">알림</a></li>
+                    <li><a href="#">고객센터</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="nav-form-bot">
+                <div class="imgbox">
+                  <a href="#"><img src="./assets/images/banner-bottom.jpg" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="nav-form" class="nav-form">
-          <div id="btn-nav-form-close"></div>
+        <div class="row pc-nav">
+          <div class="pc-nav-top"></div>
+          <div class="pc-nav-bot"></div>
+          <nav class="pc-nav-main"></nav>
+        </div>
+        <div id="login-form" class="login-form">
+          <div class="container"><!-- display:grid -->
+            <h2>
+              로그인
+              <div id="btn-login-form-close">X</div>
+            </h2>
+            <form id="login-section" action="#">
+              <input type="text" name="id" placeholder="아이디" id="input-id">
+              <input type="password" name="passwoord" placeholder="비밀번호" id="input-password">
+              <div class="clearfix">
+                <label class="f-l"><input type="checkbox" name="save-id" id="save-id">아이디 저장</label>
+                <a href="#" class="f-r">휴대폰 간편로그인<span>광고</span></a>
+              </div>
+              <input type="submit" value="로그인">
+              <div class="container-grid login-utill">
+                <a href="#">ID/PW찾기</a>
+                <a href="#">회원가입</a>
+                <a href="#">비회원 예매확인</a>
+              </div>
+              <div class="container-grid login-sns">
+                <div class="imgbox"><a href="#"><img src="./assets/m-images/ico-m-naver.png" alt="네이버 아이디로 로그인"></a></div>
+                <div class="imgbox"><a href="#"><img src="./assets/m-images/ico-m-kakao.png" alt="페이스북 아이디로 로그인"></a></div>
+                <div class="imgbox"><a href="#"><img src="./assets/m-images/ico-m-payco.png" alt="페이코 아이디로 로그인"></a></div>
+              </div>
+            </form>
+            <div id="login-ad">
+              <div class="imgbox"><a href="#"><img src="./assets/images/benefit-banner03-01.jpg" alt=""></a></div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
-    <div id="login-form" class="login-form">
-      <div id="btn-login-form-close"></div>
-    </div>
+    
 
     <main id="main" class="main"></main>
 
@@ -238,14 +635,7 @@
   <script>
     // --------------- 함수구역 ---------------
     function fnAddMainAd(){
-      if($(window).width()>=1280){
-        if($('#main-id').length){
-          //do nothing
-        }
-        else{
-          $('#wrap').prepend('<section id="main-ad"><div class="container"><div class="imgbox"><a href="#"><img src="./assets/images/banner-top.jpg" alt="광고"></a></div><div id="btn-main-ad-close" class="btn">닫기</div></div></section>');
-        }
-      }
+      $('#wrap').prepend('<section id="main-ad"><div class="container"><div class="imgbox"><a href="#"><img src="./assets/images/banner-top.jpg" alt="광고"></a></div><div id="btn-main-ad-close" class="btn">닫기</div></div></section>');
     }
     function fnRemoveMainAd(){
       $('section#main-ad').remove();
@@ -253,6 +643,38 @@
 
     function fnDisplaySet(el,opt){
       el.style.display=opt;
+    }
+    
+    function fnModalSet(opt){
+      if(opt=='off'){
+        document.querySelector('body').style.overflow='auto';
+      }
+      else if(opt=='on'){
+        document.querySelector('body').style.overflow='hidden';
+      }
+      else{
+        console.log('함수 매개변수 오류.');
+      }
+    }
+    function fnLoginFormOpen(){
+      let loginvalue=confirm('로그인 하시겠습니까?');
+      if(loginvalue){
+        fnDisplaySet(loginForm,'block');
+        fnModalSet('on');
+      }
+    }
+    function fnLoginFormClose(){
+      fnDisplaySet(loginForm,'none');
+      fnModalSet('off');
+    }
+
+    function fnNavFormOpen(){
+      fnDisplaySet(navForm,'block');
+      fnModalSet('on');
+    }
+    function fnNavFormClose(){
+      fnDisplaySet(navForm,'none');
+      fnModalSet('off');
     }
     // --------------- 함수구역 끝 ---------------
 
@@ -280,10 +702,39 @@
     // --------------- 리사이즈 이벤트 끝 ---------------
 
 
+    // --------------- 네비 폼(모바일) 제어 ---------------
+    const navForm=document.getElementById('nav-form');
+    const btnNavFormOpen=document.getElementById('btn-nav');
+    const btnNavFormClose=document.getElementById('btn-nav-form-close');
+    const btnNavToIndex=document.getElementById('nav-go-index');
+    btnNavFormOpen.onclick=function(){
+      fnNavFormOpen();
+    }
+    btnNavFormClose.onclick=function(){
+      fnNavFormClose();
+    }
+    btnNavToIndex.onclick=function(){
+      fnNavFormClose();
+    }
+    // --------------- 네비 폼(모바일) 제어 끝 ---------------
+
+
+    // --------------- 로그인 폼 제어 ---------------
+    const loginForm=document.getElementById('login-form');
+    const btnAlarm=document.getElementById('btn-alarm');
+    const btnTicket=document.getElementById('ticket');
+    const btnloginClose=document.getElementById('btn-login-form-close');
     
-    
-    
-    
+    btnAlarm.onclick=function(){
+      fnLoginFormOpen();
+    }
+    btnTicket.onclick=function(){
+      fnLoginFormOpen();
+    }
+    btnloginClose.onclick=function(){
+      fnLoginFormClose();
+    }
+    // --------------- 로그인 폼 제어 끝 ---------------
 
 
     // --------------- swiper ---------------
