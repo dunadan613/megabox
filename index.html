@@ -59,6 +59,9 @@
       /* background: repeating-linear-gradient(transparent transparent 1px, rgba(0,0,0,1) 1px, rgba(0,0,0,1) 2px); */
       background-color: rgba(0, 0, 0, 0.5);
     }
+    #main{
+      height: 300px;
+    }
     .container{
       max-width: 1280px;
       margin: 0 auto;
@@ -120,6 +123,17 @@
       left: 0;
       z-index: 2;
       background-color: var(--bg-color-header);
+    }
+    .header.active::before{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      width: 100%;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.3);
     }
     .header .logo a{
       position: absolute;
@@ -259,7 +273,7 @@
     }
     .nav-form-mid ul.container-grid a{
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: column nowrap;
       justify-content: center;
     }
     .nav-form-mid ul.container-grid .imgbox{
@@ -314,6 +328,113 @@
       width: 320px;
       margin: 0 auto;
     }
+    
+
+    /* pc-nav 스타일 */
+    .header .pc-nav{
+      display: none;
+      font-size: 1em;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .pc-nav-item{
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pc-nav-item ul{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pc-nav-top{
+      color: #888;
+      margin-bottom: 10px;
+      font-size: 0.9em;
+    }
+    .pc-nav-top ul{
+      gap: 12px;
+    }
+    .pc-nav-top li:hover a{
+      border-bottom: 1px solid #888;
+    }
+    .pc-nav-bot,
+    .pc-nav-main{
+      color: white;
+    }
+    .pc-nav-bot a{
+      display: block;
+      width: 36px;
+      height: 36px;
+      text-indent: -99999px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .pc-nav-sitemap{
+      background-image: url(./assets/images/ico-sitemap-white.png);
+    }
+    .pc-nav-search{
+      background-image: url(./assets/images/ico-search-white.png);
+    }
+    .pc-nav-schedule{
+      background-image: url(./assets/images/ico-schedule-white.png);
+    }
+    .pc-nav-mymega{
+      background-image: url(./assets/images/ico-mymega-white.png);
+    }
+    .pc-nav-main{
+      position: absolute;
+      left: 50%;
+      bottom: -11px;
+      transform: translateX(-50%);
+      width: 780px;
+      font-weight: 300;
+      font-size: 1.3em;
+    }
+    .pc-nav-main ul.depth1{
+      gap: 50px;
+    }
+    .pc-nav-main ul.depth1>li{
+      position: relative;
+    }
+    .pc-nav-main ul.depth1>li{
+      border-bottom: 3px solid transparent;
+      padding-bottom: 12px;
+    }
+    .pc-nav-main ul.depth1>li.non-border{
+      border: none !important;
+    }
+    .pc-nav-main ul.depth1>li:hover{
+      border-color: white;
+    }
+    .pc-nav-main ul.depth2{
+      position: absolute;
+      left: 50%;
+      top: 50px;
+      transform: translateX(-50%);
+      width: 1000%;
+      display: none;
+      /* display: flex; */
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.8em;
+    }
+    .pc-nav-main ul.depth2.active{
+      display: flex;
+    }
+    .pc-nav-main ul.depth2>li>a{
+      border-bottom: 1px solid transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .pc-nav-main ul.depth2>li>a:hover{
+      border-color: white;
+    }
+    /* pc-nav 스타일 */
+
     .login-form .container{
       display: grid;
       background-color: white;
@@ -327,9 +448,6 @@
       text-align: center;
       background-color: white;
       font-size: 1.2em;
-    }
-    .header .pc-nav{
-      display: none;
     }
     #btn-login-form-close{
       position: absolute;
@@ -439,6 +557,8 @@
         right: auto;
         left: auto;
         background-color: rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding: 12px 0;
       }
       .header .mobile-nav{
         display: none;
@@ -450,17 +570,36 @@
         width: 140px;
         height: 47px;
         background-image: url(./assets/images/logo-white.png);
+        background-size: cover;
       }
       .login-form .container{
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
         grid-template-columns: 1fr 1fr;
+        width: 850px;
+        height: 484px;
+        padding: 55px 20px 0 20px;
       }
       .login-form h2{
         background-color: #503396;
         color: white;
         text-align: left;
+        padding: 15px 20px 10px 20px;
+      }
+      #login-section{
+        padding: 0;
+      }
+      #login-section input{
+        padding: 1em 10px;
+      }
+      #login-section input[placeholder]{
+        border:1px solid #d8d9db;
+      }
+      #login-section input[type='submit']{
+        background-color:#e0e0e0;
+        border: 1px solid #e0e0e0;
+        color: #777;
       }
       #btn-login-form-close::before,
       #btn-login-form-close::after{
@@ -493,6 +632,7 @@
             <div id="btn-alarm" class="imgbox"><a href="#"><img src="./assets/m-images/ico-alarm.png" alt=""></a></div>
             <div id="btn-nav" class="imgbox"><a href="#"><img src="./assets/m-images/ico-m-burger.png" alt=""></a></div>
           </div>
+
           <div id="nav-form" class="nav-form">
             <div class="container">
               <div class="nav-form-top">
@@ -511,6 +651,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="nav-form-mid">
                 <h2>QUICK MENU</h2>
                 <ul class="container-grid">
@@ -584,11 +725,83 @@
             </div>
           </div>
         </div>
-        <div class="row pc-nav">
-          <div class="pc-nav-top"></div>
-          <div class="pc-nav-bot"></div>
-          <nav class="pc-nav-main"></nav>
+
+        <!-- .pc-nav-item{display:grid} -->
+        <div id="pc-nav" class="row pc-nav">
+          <div class="pc-nav-top pc-nav-item">
+            <ul>
+              <li title="VIP LOUNGE"><a href="#">VIP LOUNGE</a></li>
+              <li title="멤버십"><a href="#">멤버십</a></li>
+              <li title="고객센터"><a href="#">고객센터</a></li>
+            </ul>
+            <ul>
+              <li title="로그인" id="btn-pc-login"><a href="#">로그인</a></li>
+              <li title="회원가입"><a href="#">회원가입</a></li>
+              <li title="빠른예매"><a href="#">빠른예매</a></li>
+            </ul>
+          </div>
+
+          <div class="pc-nav-bot pc-nav-item">
+            <ul>
+              <li title="사이트맵"><a href="#" class="pc-nav-sitemap">사이트맵</a></li>
+              <li title="검색"><a href="#" class="pc-nav-search">검색</a></li>
+            </ul>
+            <ul>
+              <li title="상영시간표"><a href="#" class="pc-nav-schedule">상영시간표</a></li>
+              <li title="나의 메가박스"><a href="#" class="pc-nav-mymega">나의 메가박스</a></li>
+            </ul>
+          </div>
+
+          <nav class="pc-nav-main pc-nav-item">
+            <ul class="depth1">
+              <li class="depth1-item has-depth2">
+                <a href="#">영화</a>
+                <ul class="depth2"><!-- display:flex -->
+                  <li class="depth2-item"><a href="#">전체영화</a></li>
+                  <li class="depth2-item"><a href="#">큐레이션</a></li>
+                  <li class="depth2-item"><a href="#">무비포스트</a></li>
+                </ul>
+              </li>
+              <li class="depth1-item has-depth2">
+                <a href="#">예매</a>
+                <ul class="depth2">
+                  <li class="depth2-item"><a href="#">빠른예매</a></li>
+                  <li class="depth2-item"><a href="#">상영시간표</a></li>
+                  <li class="depth2-item"><a href="#">더 부티크 프라이빗 예매</a></li>
+                </ul>
+              </li>
+              <li class="depth1-item has-depth2">
+                <a href="#">극장</a>
+                <ul class="depth2">
+                  <li class="depth2-item"><a href="#">전체극장</a></li>
+                  <li class="depth2-item"><a href="#">특별관</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <ul class="depth1">
+              <li class="depth1-item has-depth2">
+                <a href="#">이벤트</a>
+                <ul class="depth2">
+                  <li class="depth2-item"><a href="#">진행중 이벤트</a></li>
+                  <li class="depth2-item"><a href="#">지난 이벤트</a></li>
+                  <li class="depth2-item"><a href="#">당첨자 발표</a></li>
+                </ul>
+              </li>
+              <li class="depth1-item non-border">
+                <a href="#">스토어</a>
+              </li>
+              <li class="depth1-item has-depth2">
+                <a href="#">혜택</a>
+                <ul class="depth2">
+                  <li class="depth2-item"><a href="#">메가박스 멤버십</a></li>
+                  <li class="depth2-item"><a href="#">제휴/할인</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
         </div>
+
         <div id="login-form" class="login-form">
           <div class="container"><!-- display:grid -->
             <h2>
@@ -619,6 +832,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </header>
     
@@ -644,6 +858,17 @@
     function fnDisplaySet(el,opt){
       el.style.display=opt;
     }
+    function fnActiveSet(el,opt){
+      if(opt=='on'){
+        el.classList.add('active');
+      }
+      else if(opt=='off'){
+        el.classList.remove('active');
+      }
+      else{
+        console.log('함수 매개변수 오류.');
+      }
+    }
     
     function fnModalSet(opt){
       if(opt=='off'){
@@ -657,8 +882,14 @@
       }
     }
     function fnLoginFormOpen(){
-      let loginvalue=confirm('로그인 하시겠습니까?');
-      if(loginvalue){
+      if(window.innerWidth<1280){
+        let loginvalue=confirm('로그인 하시겠습니까?');
+        if(loginvalue){
+          fnDisplaySet(loginForm,'block');
+          fnModalSet('on');
+        }
+      }
+      else{
         fnDisplaySet(loginForm,'block');
         fnModalSet('on');
       }
@@ -677,6 +908,11 @@
       fnModalSet('off');
     }
     // --------------- 함수구역 끝 ---------------
+
+
+    // --------------- 변수구역 ---------------
+    const header=document.getElementById('header');
+    // --------------- 변수구역 끝 ---------------
 
 
     // --------------- 문서로드 이벤트 ---------------
@@ -724,6 +960,7 @@
     const btnAlarm=document.getElementById('btn-alarm');
     const btnTicket=document.getElementById('ticket');
     const btnloginClose=document.getElementById('btn-login-form-close');
+    const btnPcLogin=document.getElementById('btn-pc-login');
     
     btnAlarm.onclick=function(){
       fnLoginFormOpen();
@@ -734,7 +971,30 @@
     btnloginClose.onclick=function(){
       fnLoginFormClose();
     }
+    btnPcLogin.onclick=function(){
+      fnLoginFormOpen();
+    }
     // --------------- 로그인 폼 제어 끝 ---------------
+
+
+    // --------------- pc-nav 제어 ---------------
+    let aryDepth1Item=document.getElementsByClassName('has-depth2');
+    for(let i=0;i<aryDepth1Item.length;i++){
+      aryDepth1Item[i].onmouseenter=function(){
+        fnActiveSet(header,'on');
+        for(let j=0;j<aryDepth1Item.length;j++){
+          fnDisplaySet(aryDepth1Item[j].children[1],'none')
+        }
+        fnDisplaySet(aryDepth1Item[i].children[1],'flex');
+      }
+    }
+    header.onmouseleave=function(){
+      fnActiveSet(header,'off');
+      for(let i=0;i<aryDepth1Item.length;i++){
+        fnDisplaySet(aryDepth1Item[i].children[1],'none');
+      }
+    }
+    // --------------- pc-nav 제어 끝 ---------------
 
 
     // --------------- swiper ---------------
