@@ -40,6 +40,7 @@
       right: -200px;
       bottom: -200px;
       left: -200px;
+      z-index: 1;
       background-image: url(./assets/images/section1_bg.jpg);
       background-repeat: no-repeat;
       background-position: center;
@@ -59,9 +60,6 @@
       /* background: repeating-linear-gradient(transparent transparent 1px, rgba(0,0,0,1) 1px, rgba(0,0,0,1) 2px); */
       background-color: rgba(0, 0, 0, 0.5);
     }
-    #main{
-      height: 300px;
-    }
     .container{
       max-width: 1280px;
       margin: 0 auto;
@@ -72,6 +70,10 @@
     .container-flex{
       display: flex;
     }
+    /* 문서 공통 끝 */
+
+
+    /* 위쪽광고 시작 */
     #main-ad{
       display: none;
       background-color: #d1dad5;
@@ -116,12 +118,15 @@
     #btn-main-ad-close::after{
       transform: translate(-50%,-50%) rotate(135deg);
     }
+    /* 위쪽광고 끝 */
+
+
     .header{
       position: fixed;
       top: 0;
       right: 0;
       left: 0;
-      z-index: 2;
+      z-index: 3;
       background-color: var(--bg-color-header);
     }
     .header.active::before{
@@ -435,6 +440,8 @@
     }
     /* pc-nav 스타일 */
 
+
+    /* login-form 스타일 */
     .login-form .container{
       display: grid;
       background-color: white;
@@ -541,12 +548,177 @@
     #login-ad img{
       margin: 0 auto;
     }
+    /* login-form 스타일 끝 */
+
+
+    /* 메인 시작 */
+
+    /* 메인 공통 */
+    .sec{
+      padding: 50px 0;
+      position: relative;
+      z-index: 2;
+    }
+    .sec .sec-tit{
+      margin-bottom: 2em;
+      font-size: 32px;
+    }
+    .ticketing,
+    .curation{
+      color: white;
+    }
+    .benefit,
+    .megainfo{
+      background-color: white;
+      color: var(--main-color);
+    }
+    /* 메인 공통 끝 */
+
+    /* 메인-예매 시작 */
+    .ticketing .container{
+      padding-top: 55px;
+    }
+    .nav-ticketing{
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      max-width: 800px;
+      margin: 0 auto 1.5em;
+      text-align: center;
+    }
+    .nav-ticketing li{
+      border-right: 1px solid var(--main-color);
+      padding: 1em 0;
+      background-color: white;
+      color: var(--main-color);
+      cursor: pointer;
+    }
+    .nav-ticketing li:last-child{
+      border-right: none;
+    }
+    .nav-ticketing li.active,
+    .nav-ticketing li:hover{
+      background-color: var(--main-color);
+      color: white;
+    }
+    .nav-ticketing li span{
+      display: none;
+    }
+    /* 메인-예매 끝 */
+
+    /* 무비 슬라이더 시작 */
+    .ticketing.sec1 .art{
+      display: none;
+    }
+    .ticketing.sec1 .art.active{
+      display: block;
+    }
+    .swiper .container-grid{
+      grid-template-columns: 1fr 2fr;
+      row-gap: 1em;
+      column-gap: 0.5em;
+      position: relative;
+    }
+    .movie-name{
+      display: none;
+    }
+    .movie-num{
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      z-index: 1;
+      font-weight: 700;
+      font-size: 1.2em;
+      font-style: italic;
+    }
+    .movie-poster{
+      grid-area: 1/1/2/3;
+      border-radius: 1em;
+      overflow: hidden;
+    }
+    .movie-best,
+    .movie-ticketing{
+      border: 1px solid #555;
+      border-radius: 5px;
+      padding: 0.5em;
+      text-align: center;
+    }
+    .movie-best{
+      background-color: rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .movie-best::before{
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-image: url(./assets/images/ico-heart-toggle-main.png);
+      background-repeat: no-repeat;
+      background-position-x: left;
+      background-position-y: center;
+      background-size: 24px;
+    }
+    .movie-ticketing{
+      background-color: #037b94;
+    }
+    .movie-about{
+      grid-area: 1/1/2/3;
+      padding: 1em;
+      background-color: rgba(0,0,0,0.8);
+      opacity: 0;
+      transition: 0.2s;
+    }
+    .ticketing .art .container-grid:hover .movie-about{
+      opacity: 1;
+    }
+    .movie-about a{
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+    }
+    .movie-review{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid #555;
+    }
+    .movie-review span:last-child{
+      font-size: 1.8em;
+      color: #59bec9;
+      margin-left: 10px;
+    }
+    .movie-txt{
+      height: 230px;
+      /* white-space: nowrap; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* 무비 슬라이더 끝 */
+
+
+    /* 모바일 아래버튼 */
     #mobile-btn-bottom{
       position: fixed;
       right: 0;
       bottom: 0;
       left: 0;
     }
+    /* 모바일 아래버튼 끝 */
+
+
+    @media(min-width:640px){
+      .nav-ticketing li{
+        font-size: 1.1em;
+      }
+      .nav-ticketing li span{
+        display: inline;
+      }
+    }
+
+
     @media(min-width:1280px){
       #main-ad{
         display: block;
@@ -605,6 +777,9 @@
       #btn-login-form-close::after{
         background-color: white;
       }
+      .sec1 .container{
+        padding-top: 0px;
+      }
       #mobile-btn-bottom{
         display: none;
       }
@@ -620,8 +795,9 @@
 
     <!-- main-ad z-index:2 -->
     <!-- btn-main-ad-close z-index:1 -->
+    <!-- sec z-index:2 -->
 
-    <header id="header" class="header"><!-- z-index:2 -->
+    <header id="header" class="header"><!-- z-index:3 -->
       <div class="container">
         <h1 class="logo" title=""><a href="./index.html">MEET PLAY SHARE, 메가박스</a></h1>
         <div class="row mobile-nav">
@@ -832,12 +1008,2239 @@
             </div>
           </div>
         </div>
-
       </div>
     </header>
     
 
-    <main id="main" class="main"></main>
+    <main id="main" class="main">
+      <section class="sec sec1 ticketing">
+        <div class="container">
+          <h2 class="sec-tit">영화예매</h2>
+          <nav>
+            <ul class="nav-ticketing">
+              <li select-num="0" class="active">박스오피스</li>
+              <li select-num="1">상영예정작</li>
+              <li select-num="2">클<span>래식</span>소<span>사이어티</span></li>
+              <li select-num="3">필<span>름</span>소<span>사이어티</span></li>
+            </ul>
+          </nav>
+          <article class="art art-ticketing movie active">
+            <div class="swiper swiper-movie">
+              <div class="swiper-wrapper">
+                <!-- .movie-about display:grid -->
+                <div class="swiper-slide"><!-- 서울의 봄 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">서울의 봄</h3>
+                    <p class="movie-num">1</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list01.jpg" alt="서울의 봄"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>2.8k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1979년 12월 12일, 수도 서울 군사반란 발생
+                          <br>
+                          그날, 대한민국의 운명이 바뀌었다
+                          <br>
+                          <br>
+                          대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시
+                          <br>
+                          12월 12일, 보안사령관 전두광이 반란을 일으키고
+                          <br>
+                          군 내 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다.
+                          <br>
+                          <br>
+                          권력에 눈이 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신을 비롯한
+                          <br>
+                          진압군 사이, 일촉즉발의 9시간이 흘러가는데…
+                          <br>
+                          <br>
+                          목숨을 건 두 세력의 팽팽한 대립
+                          <br>
+                          오늘 밤, 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!
+                          <br>
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 노량 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">노량:죽음의 바다</h3>
+                    <p class="movie-num">2</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list02.jpg" alt="노량"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>822</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          임진왜란 발발로부터 7년이 지난 1598년 12월.
+                          <br>
+                          이순신(김윤석)은 왜군의 수장이던 도요토미 히데요시가 갑작스럽게 사망한 뒤 왜군들이 조선에서 황급히 퇴각하려 한다는 것을 알게 된다. 
+                          <br>
+                          <br>
+                          “절대 이렇게 전쟁을 끝내서는 안 된다” 
+                          <br>
+                          <br>
+                          왜군을 완벽하게 섬멸하는 것이 이 전쟁을 올바르게 끝나는 것이라 생각한 이순신은 
+                          <br>
+                          명나라와 조명연합함대를 꾸려 왜군의 퇴각로를 막고 적들을 섬멸하기로 결심한다. 
+                          <br>
+                          <br>
+                          하지만 왜군의 뇌물 공세에 넘어간 명나라 도독 진린(정재영)은 왜군에게 퇴로를 열어주려 하고, 
+                          <br>
+                          설상가상으로 왜군 수장인 시마즈(백윤식)의 살마군까지 왜군의 퇴각을 돕기 위해 노량으로 향하는데…
+                          <br>
+                          <br>
+                          2023년 12월, 모두를 압도할 최후의 전투가 시작된다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.9</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 아쿠아맨 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">아쿠아맨과 로스트 킹덤</h3>
+                    <p class="movie-num">3</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list03.jpg" alt="아쿠아맨과 로스트 킹덤"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>792</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          아틀란티스 왕국을 이끌 왕의 자리에 오른 ‘아쿠아맨’.
+                          <br>
+                          <br>
+                          그 앞에 ‘블랙 만타’가 세상을 뒤흔들 강력한 지배 아이템 ‘블랙 트라이던트’를 손에 넣게 된다.
+                          <br>
+                          <br>
+                          그동안 겪지 못 했던 최악의 위협 속 ‘아쿠아맨’은
+                          <br>
+                          <br>
+                          ‘블랙 만타’와 손을 잡았던 이부 동생 ‘옴’ 없이는 절대적 힘이 부족한 상황.
+                          <br>
+                          <br>
+                          바다를 지배할 슈퍼 히어로가 세상의 판도를 바꾼다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 말하고 싶은 비밀 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">말하고 싶은 비밀</h3>
+                    <p class="movie-num">4</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list04.jpg" alt="말하고 싶은 비밀"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>637</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          어느 날 갑자기 고백 사고!?
+                          <br>
+                          마음이 잘못 배달되었다!
+                          <br>
+                          <br>
+                          ‘노조미’는 자신의 책상 서랍 속 ‘좋아해’라는 쪽지를 발견한다.
+                          <br>
+                          쪽지의 주인공은 바로 학교 최고 인기남 ‘세토야마’!
+                          <br>
+                          <br>
+                          전교생이 좋아하는 이상형으로부터 고백받은 설렘도 잠시,
+                          <br>
+                          고백의 주인이 사실은 자신이 아니었음을 알고 망연자실한다.
+                          <br>
+                          <br>
+                          엇갈릴수록 점점 커져가는 너를 향한 마음,
+                          <br>
+                          내일은 너에게 말할 수 있을까?
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 3일의 휴가 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">3일의 휴가</h3>
+                    <p class="movie-num">5</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list05.jpg" alt="3일의 휴가"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>829</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “따님은 어머님을 보거나 목소리를 들을 수 없고요.
+                          <br>
+                          그냥 따님의 행복한 기억만 담고 오시면 됩니다.&quot;
+                          <br>
+                          <br>
+                          죽은 지 3년째 되는 날, ‘복자’(김해숙)는 하늘에서 3일간의 휴가를 받아
+                          <br>
+                          규칙 안내를 맡은 신입 ‘가이드’(강기영)와 함께 지상에 내려온다.
+                          <br>
+                          <br>
+                          미국 명문대학교 교수인 자랑스러운 딸을 볼 생각에 설레던 마음도 잠시,
+                          <br>
+                          돌연 자신이 살던 시골집으로 돌아와 백반 장사를 시작한 ‘진주’(신민아)의 모습에 당황한다.
+                          <br>
+                          <br>
+                          속 타는 엄마의 마음도 모르는 ‘진주’는 자신을 찾아온 단짝 ‘미진’(황보라)과
+                          <br>
+                          엄마의 레시피를 찾아가고, 낯익은 요리를 보자 서로의 추억이 되살아나는데…
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- ??? -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">???</h3>
+                    <p class="movie-num">6</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list06.jpg" alt=""></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>182</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1979년 12월 12일, 수도 서울 군사반란 발생
+                          <br>
+                          그날, 대한민국의 운명이 바뀌었다
+                          <br>
+                          <br>
+                          대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시
+                          <br>
+                          12월 12일, 보안사령관 전두광이 반란을 일으키고
+                          <br>
+                          군 내 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다.
+                          <br>
+                          <br>
+                          권력에 눈이 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신을 비롯한
+                          <br>
+                          진압군 사이, 일촉즉발의 9시간이 흘러가는데…
+                          <br>
+                          <br>
+                          목숨을 건 두 세력의 팽팽한 대립
+                          <br>
+                          오늘 밤, 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!
+                          <br>
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 그대들은 어떻게 살 것인가 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">그대들은 어떻게 살 것인가</h3>
+                    <p class="movie-num">7</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list07.jpg" alt="그대들은 어떻게 살 것인가"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>4.9k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          화재로 어머니를 잃은 11살 소년 ‘마히토’는 아버지와 함께 어머니의 고향으로 간다.
+                          <br>
+                          <br>
+                          어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에
+                          <br>
+                          정체를 알 수 없는 왜가리 한 마리가 나타나고, 저택에서 일하는 일곱 할멈으로부터 왜가리가 살고 있는 탑에 대한 신비로운 이야기를 듣게 된다.
+                          <br>
+                          <br>
+                          그러던 어느 날, ‘마히토’는 사라져버린 새엄마 ‘나츠코’를 찾기 위해 탑으로 들어가고,
+                          <br>
+                          왜가리가 안내하는 대로 이세계(異世界)의 문을 통과하는데…!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 괴물 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">괴물</h3>
+                    <p class="movie-num">8</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list08.jpg" alt="서울의 봄"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>1.2k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “우리 동네에는 괴물이 산다”
+                          <br>
+                          <br>
+                          싱글맘 사오리(안도 사쿠라)는 아들 미나토(쿠로카와 소야)의 행동에서 이상 기운을 감지한다.
+                          <br>
+                          <br>
+                          용기를 내 찾아간 학교에서 상담을 진행한 날 이후
+                          <br>
+                          선생님과 학생들의 분위기가 심상치 않게 흐르기 시작하고.
+                          <br>
+                          <br>
+                          “괴물은 누구인가?”
+                          <br>
+                          <br>
+                          한편 사오리는 친구들로부터 따돌림을 당하고 있는
+                          <br>
+                          미나토의 친구 요리(히이라기 히나타)의 존재를 알게 되고
+                          <br>
+                          자신이 아는 아들의 모습과 사람들이 아는 아들의 모습이
+                          <br>
+                          다르다는 사실을 어렴풋이 깨닫는데…
+                          <br>
+                          <br>
+                          태풍이 몰아치던 어느 날, 아무도 몰랐던 진실이 드러난다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 2024 빈 필하모닉 신년음악회 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">2024 빈 필하모닉 신년음악회</h3>
+                    <p class="movie-num">9</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list09.jpg" alt="2024 빈 필하모닉 신년음악회"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>305</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          스크린으로 만나는 세계 최고의 음악회
+                          <br>
+                          <br>
+                          2024 빈 필하모닉 신년음악회
+                          <br>
+                          <br>
+                          [상영정보]
+                          <br>
+                          - 상영일시 : 2024년 1월 1일(월) 19:00 *생중계
+                          <br>
+                          - 예매오픈 : 2023년 12월 4일(월) 15:00
+                          <br>
+                          - 공연시간 : 150분 (인터미션 포함)
+                          <br>
+                          <br>
+                          *** 본 공연은 위성 생중계되어, 음향 및 화질이 고르지 못할 수 있으며 자막이 제공되지 않습니다.
+                          <br>
+                          *** 현지 공연 사정 및 중계 상황에 따라 프로그램 및 러닝타임이 변경될 수 있습니다.
+                          <br>
+                          <br>
+                          [공연정보]
+                          <br>
+                          - 상영 일정: 2024년 1월 1일 (토) 19:00~21:30, 150분 (인터미션 25분 포함 예상)
+                          <br>
+                          (현지 공연: 2024년 1월 1일 (토) 11:15~13:45)
+                          <br>
+                          - 현지 공연 장소: 오스트리아 빈 무지크페라인, 황금홀 (Musikverein, Vienna)
+                          <br>
+                          - 지휘: 크리스티안 틸레만 (Christian Thielemann)
+                          <br>
+                          - 연주: 빈 필하모닉 오케스트라 (Vienna Philharmonic Orchestra)
+                          <br>
+                          <br>
+                          [공연소개]
+                          <br>
+                          빈 필하모닉 신년음악회는 매년 빈 무지크페라인 황금홀에서 슈트라우스 일가의 음악과 함께 한 해를 시작하는 세계적인 전통 행사이다.
+                          올해는 독일을 대표하는 지휘자 크리스티안 틸레만이 지휘봉을 잡았다.
+                          2019년 이후 4년 만에 돌아온 그는 브루크너 스페셜리스트라는 명성에 걸맞게 슈트라우스 일가의 음악뿐만 아니라 브루크너의 곡도 초연한다.
+                          브루크너의 탄생 200주년을 기념하여 2020년부터 틸레만과 빈 필하모닉의 브루크너 교향곡 전곡 녹음을 해오며 합을 맞춘 만큼 그 누구보다 생동감 있는 연주회가 될 것이다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span></span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 나폴레옹 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">나폴레옹</h3>
+                    <p class="movie-num">10</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list10.jpg" alt="나폴레옹"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>930</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          스스로 황제가 된 영웅!
+                          <br>
+                          1793년 혁명의 불꽃이 프랑스 전역을 밝히기 시작한다.
+                          <br>
+                          코르시카 출신의 장교 '나폴레옹'(호아킨 피닉스)은
+                          <br>
+                          혼란스러운 상황 속 국가를 위해 맞서며 영웅으로 떠오른다.
+                          <br>
+                          <br>
+                          한편, 사교 파티에서 영웅 ‘나폴레옹’을 만난 '조제핀'(바네사 커비)은
+                          <br>
+                          자신의 운명을 바꾸기 위해 ‘나폴레옹’을 선택하고
+                          <br>
+                          ‘나폴레옹’은 마침내 스스로 황제의 자리에 오르게 된다.
+                          <br>
+                          <br>
+                          하지만, ‘조제핀’은 계속해서 ‘나폴레옹’을 흔들고,
+                          <br>
+                          ‘나폴레옹’의 야망은 ‘조제핀’과 끝없이 충돌하는데…
+                          <br>
+                          <br>
+                          세상을 정복한 영웅 아무것도 갖지 못한 황제,
+                          <br>
+                          ‘나폴레옹’의 대서사가 펼쳐진다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.8</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 쏘우 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">쏘우</h3>
+                    <p class="movie-num">11</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list11.jpg" alt="쏘우"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>248</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1편의 게임을 마친 존 크레이머 일명 ‘직쏘’는
+                          <br>
+                          암을 치료하러 멕시코로 떠난다.
+                          <br>
+                          <br>
+                          그러나 그곳에서 모든 희망은 절망이 되고
+                          <br>
+                          모든 것이 사기라는 것을 알게 되는데…
+                          <br>
+                          <br>
+                          이제 존의 차례이다.
+                          <br>
+                          이것은 복수가 아니다.
+                          <br>
+                          ‘직쏘’의 세계로 초대받은 모든 사람은
+                          <br>
+                          자신을 구원할 기회를 가진다.
+                          <br>
+                          <br>
+                          그들의 게임이 끝나고,
+                          <br>
+                          직쏘의 게임이 시작된다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 싱글 인 서울 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">싱글 인 서울</h3>
+                    <p class="movie-num">12</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/movie-list12.jpg" alt="싱글 인 서울"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>916</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “나한테 딱 맞는 사람은 나밖에 없어, 싱글이 답이다!”
+                          <br>
+                          혼자 걷기, 혼자 쉬기, 혼자 먹기, 혼자 살기…
+                          <br>
+                          혼자가 좋은 파워 인플루언서 ‘영호'(이동욱)
+                          <br>
+                          <br>
+                          “사실 혼자인 사람은 없잖아요”
+                          <br>
+                          혼자 썸타기, 나 홀로 그린 라이트…
+                          <br>
+                          유능한 출판사 편집장이지만 혼자는 싫은 ‘현진’(임수정)
+                          <br>
+                          <br>
+                          싱글 라이프를 담은 에세이 &#60;싱글 인 더 시티&#62; 시리즈의 작가와 편집자로 만난 ‘영호’와 ‘현진’.
+                          <br>
+                          생활 방식도 가치관도 서로 다른 두 사람은
+                          <br>
+                          책을 두고 사사건건 대립하면서도, 함께 보내는 시간이 나쁘지만은 않은데…?
+                          <br>
+                          <br>
+                          서울, 혼자가 좋지만 연애는 하고 싶은
+                          <br>
+                          두 남녀의 싱글 라이프가 시작된다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.4</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="art art-ticketing exp">
+            <div class="swiper swiper-exp">
+              <div class="swiper-wrapper">
+                <!-- .movie-about display:grid -->
+                <div class="swiper-slide"><!-- 1 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">서울의 봄</h3>
+                    <p class="movie-num">1</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list01.jpg" alt="서울의 봄"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>2.8k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1979년 12월 12일, 수도 서울 군사반란 발생
+                          <br>
+                          그날, 대한민국의 운명이 바뀌었다
+                          <br>
+                          <br>
+                          대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시
+                          <br>
+                          12월 12일, 보안사령관 전두광이 반란을 일으키고
+                          <br>
+                          군 내 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다.
+                          <br>
+                          <br>
+                          권력에 눈이 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신을 비롯한
+                          <br>
+                          진압군 사이, 일촉즉발의 9시간이 흘러가는데…
+                          <br>
+                          <br>
+                          목숨을 건 두 세력의 팽팽한 대립
+                          <br>
+                          오늘 밤, 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!
+                          <br>
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 2 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">노량:죽음의 바다</h3>
+                    <p class="movie-num">2</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list02.jpg" alt="노량"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>822</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          임진왜란 발발로부터 7년이 지난 1598년 12월.
+                          <br>
+                          이순신(김윤석)은 왜군의 수장이던 도요토미 히데요시가 갑작스럽게 사망한 뒤 왜군들이 조선에서 황급히 퇴각하려 한다는 것을 알게 된다. 
+                          <br>
+                          <br>
+                          “절대 이렇게 전쟁을 끝내서는 안 된다” 
+                          <br>
+                          <br>
+                          왜군을 완벽하게 섬멸하는 것이 이 전쟁을 올바르게 끝나는 것이라 생각한 이순신은 
+                          <br>
+                          명나라와 조명연합함대를 꾸려 왜군의 퇴각로를 막고 적들을 섬멸하기로 결심한다. 
+                          <br>
+                          <br>
+                          하지만 왜군의 뇌물 공세에 넘어간 명나라 도독 진린(정재영)은 왜군에게 퇴로를 열어주려 하고, 
+                          <br>
+                          설상가상으로 왜군 수장인 시마즈(백윤식)의 살마군까지 왜군의 퇴각을 돕기 위해 노량으로 향하는데…
+                          <br>
+                          <br>
+                          2023년 12월, 모두를 압도할 최후의 전투가 시작된다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.9</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 3 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">아쿠아맨과 로스트 킹덤</h3>
+                    <p class="movie-num">3</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list03.jpg" alt="아쿠아맨과 로스트 킹덤"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>792</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          아틀란티스 왕국을 이끌 왕의 자리에 오른 ‘아쿠아맨’.
+                          <br>
+                          <br>
+                          그 앞에 ‘블랙 만타’가 세상을 뒤흔들 강력한 지배 아이템 ‘블랙 트라이던트’를 손에 넣게 된다.
+                          <br>
+                          <br>
+                          그동안 겪지 못 했던 최악의 위협 속 ‘아쿠아맨’은
+                          <br>
+                          <br>
+                          ‘블랙 만타’와 손을 잡았던 이부 동생 ‘옴’ 없이는 절대적 힘이 부족한 상황.
+                          <br>
+                          <br>
+                          바다를 지배할 슈퍼 히어로가 세상의 판도를 바꾼다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 4 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">말하고 싶은 비밀</h3>
+                    <p class="movie-num">4</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list04.jpg" alt="말하고 싶은 비밀"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>637</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          어느 날 갑자기 고백 사고!?
+                          <br>
+                          마음이 잘못 배달되었다!
+                          <br>
+                          <br>
+                          ‘노조미’는 자신의 책상 서랍 속 ‘좋아해’라는 쪽지를 발견한다.
+                          <br>
+                          쪽지의 주인공은 바로 학교 최고 인기남 ‘세토야마’!
+                          <br>
+                          <br>
+                          전교생이 좋아하는 이상형으로부터 고백받은 설렘도 잠시,
+                          <br>
+                          고백의 주인이 사실은 자신이 아니었음을 알고 망연자실한다.
+                          <br>
+                          <br>
+                          엇갈릴수록 점점 커져가는 너를 향한 마음,
+                          <br>
+                          내일은 너에게 말할 수 있을까?
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 5 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">3일의 휴가</h3>
+                    <p class="movie-num">5</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list05.jpg" alt="3일의 휴가"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>829</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “따님은 어머님을 보거나 목소리를 들을 수 없고요.
+                          <br>
+                          그냥 따님의 행복한 기억만 담고 오시면 됩니다.&quot;
+                          <br>
+                          <br>
+                          죽은 지 3년째 되는 날, ‘복자’(김해숙)는 하늘에서 3일간의 휴가를 받아
+                          <br>
+                          규칙 안내를 맡은 신입 ‘가이드’(강기영)와 함께 지상에 내려온다.
+                          <br>
+                          <br>
+                          미국 명문대학교 교수인 자랑스러운 딸을 볼 생각에 설레던 마음도 잠시,
+                          <br>
+                          돌연 자신이 살던 시골집으로 돌아와 백반 장사를 시작한 ‘진주’(신민아)의 모습에 당황한다.
+                          <br>
+                          <br>
+                          속 타는 엄마의 마음도 모르는 ‘진주’는 자신을 찾아온 단짝 ‘미진’(황보라)과
+                          <br>
+                          엄마의 레시피를 찾아가고, 낯익은 요리를 보자 서로의 추억이 되살아나는데…
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 6 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">???</h3>
+                    <p class="movie-num">6</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list06.jpg" alt=""></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>182</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1979년 12월 12일, 수도 서울 군사반란 발생
+                          <br>
+                          그날, 대한민국의 운명이 바뀌었다
+                          <br>
+                          <br>
+                          대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시
+                          <br>
+                          12월 12일, 보안사령관 전두광이 반란을 일으키고
+                          <br>
+                          군 내 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다.
+                          <br>
+                          <br>
+                          권력에 눈이 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신을 비롯한
+                          <br>
+                          진압군 사이, 일촉즉발의 9시간이 흘러가는데…
+                          <br>
+                          <br>
+                          목숨을 건 두 세력의 팽팽한 대립
+                          <br>
+                          오늘 밤, 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!
+                          <br>
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 7 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">그대들은 어떻게 살 것인가</h3>
+                    <p class="movie-num">7</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list07.jpg" alt="그대들은 어떻게 살 것인가"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>4.9k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          화재로 어머니를 잃은 11살 소년 ‘마히토’는 아버지와 함께 어머니의 고향으로 간다.
+                          <br>
+                          <br>
+                          어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에
+                          <br>
+                          정체를 알 수 없는 왜가리 한 마리가 나타나고, 저택에서 일하는 일곱 할멈으로부터 왜가리가 살고 있는 탑에 대한 신비로운 이야기를 듣게 된다.
+                          <br>
+                          <br>
+                          그러던 어느 날, ‘마히토’는 사라져버린 새엄마 ‘나츠코’를 찾기 위해 탑으로 들어가고,
+                          <br>
+                          왜가리가 안내하는 대로 이세계(異世界)의 문을 통과하는데…!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 8 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">괴물</h3>
+                    <p class="movie-num">8</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list08.jpg" alt="서울의 봄"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>1.2k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “우리 동네에는 괴물이 산다”
+                          <br>
+                          <br>
+                          싱글맘 사오리(안도 사쿠라)는 아들 미나토(쿠로카와 소야)의 행동에서 이상 기운을 감지한다.
+                          <br>
+                          <br>
+                          용기를 내 찾아간 학교에서 상담을 진행한 날 이후
+                          <br>
+                          선생님과 학생들의 분위기가 심상치 않게 흐르기 시작하고.
+                          <br>
+                          <br>
+                          “괴물은 누구인가?”
+                          <br>
+                          <br>
+                          한편 사오리는 친구들로부터 따돌림을 당하고 있는
+                          <br>
+                          미나토의 친구 요리(히이라기 히나타)의 존재를 알게 되고
+                          <br>
+                          자신이 아는 아들의 모습과 사람들이 아는 아들의 모습이
+                          <br>
+                          다르다는 사실을 어렴풋이 깨닫는데…
+                          <br>
+                          <br>
+                          태풍이 몰아치던 어느 날, 아무도 몰랐던 진실이 드러난다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 9 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">2024 빈 필하모닉 신년음악회</h3>
+                    <p class="movie-num">9</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list09.jpg" alt="2024 빈 필하모닉 신년음악회"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>305</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          스크린으로 만나는 세계 최고의 음악회
+                          <br>
+                          <br>
+                          2024 빈 필하모닉 신년음악회
+                          <br>
+                          <br>
+                          [상영정보]
+                          <br>
+                          - 상영일시 : 2024년 1월 1일(월) 19:00 *생중계
+                          <br>
+                          - 예매오픈 : 2023년 12월 4일(월) 15:00
+                          <br>
+                          - 공연시간 : 150분 (인터미션 포함)
+                          <br>
+                          <br>
+                          *** 본 공연은 위성 생중계되어, 음향 및 화질이 고르지 못할 수 있으며 자막이 제공되지 않습니다.
+                          <br>
+                          *** 현지 공연 사정 및 중계 상황에 따라 프로그램 및 러닝타임이 변경될 수 있습니다.
+                          <br>
+                          <br>
+                          [공연정보]
+                          <br>
+                          - 상영 일정: 2024년 1월 1일 (토) 19:00~21:30, 150분 (인터미션 25분 포함 예상)
+                          <br>
+                          (현지 공연: 2024년 1월 1일 (토) 11:15~13:45)
+                          <br>
+                          - 현지 공연 장소: 오스트리아 빈 무지크페라인, 황금홀 (Musikverein, Vienna)
+                          <br>
+                          - 지휘: 크리스티안 틸레만 (Christian Thielemann)
+                          <br>
+                          - 연주: 빈 필하모닉 오케스트라 (Vienna Philharmonic Orchestra)
+                          <br>
+                          <br>
+                          [공연소개]
+                          <br>
+                          빈 필하모닉 신년음악회는 매년 빈 무지크페라인 황금홀에서 슈트라우스 일가의 음악과 함께 한 해를 시작하는 세계적인 전통 행사이다.
+                          올해는 독일을 대표하는 지휘자 크리스티안 틸레만이 지휘봉을 잡았다.
+                          2019년 이후 4년 만에 돌아온 그는 브루크너 스페셜리스트라는 명성에 걸맞게 슈트라우스 일가의 음악뿐만 아니라 브루크너의 곡도 초연한다.
+                          브루크너의 탄생 200주년을 기념하여 2020년부터 틸레만과 빈 필하모닉의 브루크너 교향곡 전곡 녹음을 해오며 합을 맞춘 만큼 그 누구보다 생동감 있는 연주회가 될 것이다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span></span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 10 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">나폴레옹</h3>
+                    <p class="movie-num">10</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list10.jpg" alt="나폴레옹"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>930</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          스스로 황제가 된 영웅!
+                          <br>
+                          1793년 혁명의 불꽃이 프랑스 전역을 밝히기 시작한다.
+                          <br>
+                          코르시카 출신의 장교 '나폴레옹'(호아킨 피닉스)은
+                          <br>
+                          혼란스러운 상황 속 국가를 위해 맞서며 영웅으로 떠오른다.
+                          <br>
+                          <br>
+                          한편, 사교 파티에서 영웅 ‘나폴레옹’을 만난 '조제핀'(바네사 커비)은
+                          <br>
+                          자신의 운명을 바꾸기 위해 ‘나폴레옹’을 선택하고
+                          <br>
+                          ‘나폴레옹’은 마침내 스스로 황제의 자리에 오르게 된다.
+                          <br>
+                          <br>
+                          하지만, ‘조제핀’은 계속해서 ‘나폴레옹’을 흔들고,
+                          <br>
+                          ‘나폴레옹’의 야망은 ‘조제핀’과 끝없이 충돌하는데…
+                          <br>
+                          <br>
+                          세상을 정복한 영웅 아무것도 갖지 못한 황제,
+                          <br>
+                          ‘나폴레옹’의 대서사가 펼쳐진다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.8</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 11 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">쏘우</h3>
+                    <p class="movie-num">11</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list11.jpg" alt="쏘우"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>248</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1편의 게임을 마친 존 크레이머 일명 ‘직쏘’는
+                          <br>
+                          암을 치료하러 멕시코로 떠난다.
+                          <br>
+                          <br>
+                          그러나 그곳에서 모든 희망은 절망이 되고
+                          <br>
+                          모든 것이 사기라는 것을 알게 되는데…
+                          <br>
+                          <br>
+                          이제 존의 차례이다.
+                          <br>
+                          이것은 복수가 아니다.
+                          <br>
+                          ‘직쏘’의 세계로 초대받은 모든 사람은
+                          <br>
+                          자신을 구원할 기회를 가진다.
+                          <br>
+                          <br>
+                          그들의 게임이 끝나고,
+                          <br>
+                          직쏘의 게임이 시작된다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 12 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">12</h3>
+                    <p class="movie-num">12</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/exp-list12.jpg" alt="싱글 인 서울"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>916</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “나한테 딱 맞는 사람은 나밖에 없어, 싱글이 답이다!”
+                          <br>
+                          혼자 걷기, 혼자 쉬기, 혼자 먹기, 혼자 살기…
+                          <br>
+                          혼자가 좋은 파워 인플루언서 ‘영호'(이동욱)
+                          <br>
+                          <br>
+                          “사실 혼자인 사람은 없잖아요”
+                          <br>
+                          혼자 썸타기, 나 홀로 그린 라이트…
+                          <br>
+                          유능한 출판사 편집장이지만 혼자는 싫은 ‘현진’(임수정)
+                          <br>
+                          <br>
+                          싱글 라이프를 담은 에세이 &#60;싱글 인 더 시티&#62; 시리즈의 작가와 편집자로 만난 ‘영호’와 ‘현진’.
+                          <br>
+                          생활 방식도 가치관도 서로 다른 두 사람은
+                          <br>
+                          책을 두고 사사건건 대립하면서도, 함께 보내는 시간이 나쁘지만은 않은데…?
+                          <br>
+                          <br>
+                          서울, 혼자가 좋지만 연애는 하고 싶은
+                          <br>
+                          두 남녀의 싱글 라이프가 시작된다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.4</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="art art-ticketing classic">
+            <div class="swiper swiper-classic">
+              <div class="swiper-wrapper">
+                <!-- .movie-about display:grid -->
+                <div class="swiper-slide"><!-- 1 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">서울의 봄</h3>
+                    <p class="movie-num">1</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list01.jpg" alt="서울의 봄"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>2.8k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1979년 12월 12일, 수도 서울 군사반란 발생
+                          <br>
+                          그날, 대한민국의 운명이 바뀌었다
+                          <br>
+                          <br>
+                          대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시
+                          <br>
+                          12월 12일, 보안사령관 전두광이 반란을 일으키고
+                          <br>
+                          군 내 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다.
+                          <br>
+                          <br>
+                          권력에 눈이 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신을 비롯한
+                          <br>
+                          진압군 사이, 일촉즉발의 9시간이 흘러가는데…
+                          <br>
+                          <br>
+                          목숨을 건 두 세력의 팽팽한 대립
+                          <br>
+                          오늘 밤, 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!
+                          <br>
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 2 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">노량:죽음의 바다</h3>
+                    <p class="movie-num">2</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list02.jpg" alt="노량"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>822</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          임진왜란 발발로부터 7년이 지난 1598년 12월.
+                          <br>
+                          이순신(김윤석)은 왜군의 수장이던 도요토미 히데요시가 갑작스럽게 사망한 뒤 왜군들이 조선에서 황급히 퇴각하려 한다는 것을 알게 된다. 
+                          <br>
+                          <br>
+                          “절대 이렇게 전쟁을 끝내서는 안 된다” 
+                          <br>
+                          <br>
+                          왜군을 완벽하게 섬멸하는 것이 이 전쟁을 올바르게 끝나는 것이라 생각한 이순신은 
+                          <br>
+                          명나라와 조명연합함대를 꾸려 왜군의 퇴각로를 막고 적들을 섬멸하기로 결심한다. 
+                          <br>
+                          <br>
+                          하지만 왜군의 뇌물 공세에 넘어간 명나라 도독 진린(정재영)은 왜군에게 퇴로를 열어주려 하고, 
+                          <br>
+                          설상가상으로 왜군 수장인 시마즈(백윤식)의 살마군까지 왜군의 퇴각을 돕기 위해 노량으로 향하는데…
+                          <br>
+                          <br>
+                          2023년 12월, 모두를 압도할 최후의 전투가 시작된다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.9</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 3 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">아쿠아맨과 로스트 킹덤</h3>
+                    <p class="movie-num">3</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list03.jpg" alt="아쿠아맨과 로스트 킹덤"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>792</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          아틀란티스 왕국을 이끌 왕의 자리에 오른 ‘아쿠아맨’.
+                          <br>
+                          <br>
+                          그 앞에 ‘블랙 만타’가 세상을 뒤흔들 강력한 지배 아이템 ‘블랙 트라이던트’를 손에 넣게 된다.
+                          <br>
+                          <br>
+                          그동안 겪지 못 했던 최악의 위협 속 ‘아쿠아맨’은
+                          <br>
+                          <br>
+                          ‘블랙 만타’와 손을 잡았던 이부 동생 ‘옴’ 없이는 절대적 힘이 부족한 상황.
+                          <br>
+                          <br>
+                          바다를 지배할 슈퍼 히어로가 세상의 판도를 바꾼다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 4 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">말하고 싶은 비밀</h3>
+                    <p class="movie-num">4</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list04.jpg" alt="말하고 싶은 비밀"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>637</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          어느 날 갑자기 고백 사고!?
+                          <br>
+                          마음이 잘못 배달되었다!
+                          <br>
+                          <br>
+                          ‘노조미’는 자신의 책상 서랍 속 ‘좋아해’라는 쪽지를 발견한다.
+                          <br>
+                          쪽지의 주인공은 바로 학교 최고 인기남 ‘세토야마’!
+                          <br>
+                          <br>
+                          전교생이 좋아하는 이상형으로부터 고백받은 설렘도 잠시,
+                          <br>
+                          고백의 주인이 사실은 자신이 아니었음을 알고 망연자실한다.
+                          <br>
+                          <br>
+                          엇갈릴수록 점점 커져가는 너를 향한 마음,
+                          <br>
+                          내일은 너에게 말할 수 있을까?
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 5 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">3일의 휴가</h3>
+                    <p class="movie-num">5</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list05.jpg" alt="3일의 휴가"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>829</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “따님은 어머님을 보거나 목소리를 들을 수 없고요.
+                          <br>
+                          그냥 따님의 행복한 기억만 담고 오시면 됩니다.&quot;
+                          <br>
+                          <br>
+                          죽은 지 3년째 되는 날, ‘복자’(김해숙)는 하늘에서 3일간의 휴가를 받아
+                          <br>
+                          규칙 안내를 맡은 신입 ‘가이드’(강기영)와 함께 지상에 내려온다.
+                          <br>
+                          <br>
+                          미국 명문대학교 교수인 자랑스러운 딸을 볼 생각에 설레던 마음도 잠시,
+                          <br>
+                          돌연 자신이 살던 시골집으로 돌아와 백반 장사를 시작한 ‘진주’(신민아)의 모습에 당황한다.
+                          <br>
+                          <br>
+                          속 타는 엄마의 마음도 모르는 ‘진주’는 자신을 찾아온 단짝 ‘미진’(황보라)과
+                          <br>
+                          엄마의 레시피를 찾아가고, 낯익은 요리를 보자 서로의 추억이 되살아나는데…
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 6 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">???</h3>
+                    <p class="movie-num">6</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list06.jpg" alt=""></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>182</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1979년 12월 12일, 수도 서울 군사반란 발생
+                          <br>
+                          그날, 대한민국의 운명이 바뀌었다
+                          <br>
+                          <br>
+                          대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시
+                          <br>
+                          12월 12일, 보안사령관 전두광이 반란을 일으키고
+                          <br>
+                          군 내 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다.
+                          <br>
+                          <br>
+                          권력에 눈이 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신을 비롯한
+                          <br>
+                          진압군 사이, 일촉즉발의 9시간이 흘러가는데…
+                          <br>
+                          <br>
+                          목숨을 건 두 세력의 팽팽한 대립
+                          <br>
+                          오늘 밤, 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!
+                          <br>
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 7 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">그대들은 어떻게 살 것인가</h3>
+                    <p class="movie-num">7</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list07.jpg" alt="그대들은 어떻게 살 것인가"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>4.9k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          화재로 어머니를 잃은 11살 소년 ‘마히토’는 아버지와 함께 어머니의 고향으로 간다.
+                          <br>
+                          <br>
+                          어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에
+                          <br>
+                          정체를 알 수 없는 왜가리 한 마리가 나타나고, 저택에서 일하는 일곱 할멈으로부터 왜가리가 살고 있는 탑에 대한 신비로운 이야기를 듣게 된다.
+                          <br>
+                          <br>
+                          그러던 어느 날, ‘마히토’는 사라져버린 새엄마 ‘나츠코’를 찾기 위해 탑으로 들어가고,
+                          <br>
+                          왜가리가 안내하는 대로 이세계(異世界)의 문을 통과하는데…!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 8 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">괴물</h3>
+                    <p class="movie-num">8</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list08.jpg" alt="서울의 봄"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>1.2k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “우리 동네에는 괴물이 산다”
+                          <br>
+                          <br>
+                          싱글맘 사오리(안도 사쿠라)는 아들 미나토(쿠로카와 소야)의 행동에서 이상 기운을 감지한다.
+                          <br>
+                          <br>
+                          용기를 내 찾아간 학교에서 상담을 진행한 날 이후
+                          <br>
+                          선생님과 학생들의 분위기가 심상치 않게 흐르기 시작하고.
+                          <br>
+                          <br>
+                          “괴물은 누구인가?”
+                          <br>
+                          <br>
+                          한편 사오리는 친구들로부터 따돌림을 당하고 있는
+                          <br>
+                          미나토의 친구 요리(히이라기 히나타)의 존재를 알게 되고
+                          <br>
+                          자신이 아는 아들의 모습과 사람들이 아는 아들의 모습이
+                          <br>
+                          다르다는 사실을 어렴풋이 깨닫는데…
+                          <br>
+                          <br>
+                          태풍이 몰아치던 어느 날, 아무도 몰랐던 진실이 드러난다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 9 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">2024 빈 필하모닉 신년음악회</h3>
+                    <p class="movie-num">9</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list09.jpg" alt="2024 빈 필하모닉 신년음악회"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>305</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          스크린으로 만나는 세계 최고의 음악회
+                          <br>
+                          <br>
+                          2024 빈 필하모닉 신년음악회
+                          <br>
+                          <br>
+                          [상영정보]
+                          <br>
+                          - 상영일시 : 2024년 1월 1일(월) 19:00 *생중계
+                          <br>
+                          - 예매오픈 : 2023년 12월 4일(월) 15:00
+                          <br>
+                          - 공연시간 : 150분 (인터미션 포함)
+                          <br>
+                          <br>
+                          *** 본 공연은 위성 생중계되어, 음향 및 화질이 고르지 못할 수 있으며 자막이 제공되지 않습니다.
+                          <br>
+                          *** 현지 공연 사정 및 중계 상황에 따라 프로그램 및 러닝타임이 변경될 수 있습니다.
+                          <br>
+                          <br>
+                          [공연정보]
+                          <br>
+                          - 상영 일정: 2024년 1월 1일 (토) 19:00~21:30, 150분 (인터미션 25분 포함 예상)
+                          <br>
+                          (현지 공연: 2024년 1월 1일 (토) 11:15~13:45)
+                          <br>
+                          - 현지 공연 장소: 오스트리아 빈 무지크페라인, 황금홀 (Musikverein, Vienna)
+                          <br>
+                          - 지휘: 크리스티안 틸레만 (Christian Thielemann)
+                          <br>
+                          - 연주: 빈 필하모닉 오케스트라 (Vienna Philharmonic Orchestra)
+                          <br>
+                          <br>
+                          [공연소개]
+                          <br>
+                          빈 필하모닉 신년음악회는 매년 빈 무지크페라인 황금홀에서 슈트라우스 일가의 음악과 함께 한 해를 시작하는 세계적인 전통 행사이다.
+                          올해는 독일을 대표하는 지휘자 크리스티안 틸레만이 지휘봉을 잡았다.
+                          2019년 이후 4년 만에 돌아온 그는 브루크너 스페셜리스트라는 명성에 걸맞게 슈트라우스 일가의 음악뿐만 아니라 브루크너의 곡도 초연한다.
+                          브루크너의 탄생 200주년을 기념하여 2020년부터 틸레만과 빈 필하모닉의 브루크너 교향곡 전곡 녹음을 해오며 합을 맞춘 만큼 그 누구보다 생동감 있는 연주회가 될 것이다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span></span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 10 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">나폴레옹</h3>
+                    <p class="movie-num">10</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list10.jpg" alt="나폴레옹"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>930</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          스스로 황제가 된 영웅!
+                          <br>
+                          1793년 혁명의 불꽃이 프랑스 전역을 밝히기 시작한다.
+                          <br>
+                          코르시카 출신의 장교 '나폴레옹'(호아킨 피닉스)은
+                          <br>
+                          혼란스러운 상황 속 국가를 위해 맞서며 영웅으로 떠오른다.
+                          <br>
+                          <br>
+                          한편, 사교 파티에서 영웅 ‘나폴레옹’을 만난 '조제핀'(바네사 커비)은
+                          <br>
+                          자신의 운명을 바꾸기 위해 ‘나폴레옹’을 선택하고
+                          <br>
+                          ‘나폴레옹’은 마침내 스스로 황제의 자리에 오르게 된다.
+                          <br>
+                          <br>
+                          하지만, ‘조제핀’은 계속해서 ‘나폴레옹’을 흔들고,
+                          <br>
+                          ‘나폴레옹’의 야망은 ‘조제핀’과 끝없이 충돌하는데…
+                          <br>
+                          <br>
+                          세상을 정복한 영웅 아무것도 갖지 못한 황제,
+                          <br>
+                          ‘나폴레옹’의 대서사가 펼쳐진다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.8</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 11 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">쏘우</h3>
+                    <p class="movie-num">11</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list11.jpg" alt="쏘우"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>248</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1편의 게임을 마친 존 크레이머 일명 ‘직쏘’는
+                          <br>
+                          암을 치료하러 멕시코로 떠난다.
+                          <br>
+                          <br>
+                          그러나 그곳에서 모든 희망은 절망이 되고
+                          <br>
+                          모든 것이 사기라는 것을 알게 되는데…
+                          <br>
+                          <br>
+                          이제 존의 차례이다.
+                          <br>
+                          이것은 복수가 아니다.
+                          <br>
+                          ‘직쏘’의 세계로 초대받은 모든 사람은
+                          <br>
+                          자신을 구원할 기회를 가진다.
+                          <br>
+                          <br>
+                          그들의 게임이 끝나고,
+                          <br>
+                          직쏘의 게임이 시작된다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 12 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">12</h3>
+                    <p class="movie-num">12</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/clasic-list12.jpg" alt="싱글 인 서울"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>916</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “나한테 딱 맞는 사람은 나밖에 없어, 싱글이 답이다!”
+                          <br>
+                          혼자 걷기, 혼자 쉬기, 혼자 먹기, 혼자 살기…
+                          <br>
+                          혼자가 좋은 파워 인플루언서 ‘영호'(이동욱)
+                          <br>
+                          <br>
+                          “사실 혼자인 사람은 없잖아요”
+                          <br>
+                          혼자 썸타기, 나 홀로 그린 라이트…
+                          <br>
+                          유능한 출판사 편집장이지만 혼자는 싫은 ‘현진’(임수정)
+                          <br>
+                          <br>
+                          싱글 라이프를 담은 에세이 &#60;싱글 인 더 시티&#62; 시리즈의 작가와 편집자로 만난 ‘영호’와 ‘현진’.
+                          <br>
+                          생활 방식도 가치관도 서로 다른 두 사람은
+                          <br>
+                          책을 두고 사사건건 대립하면서도, 함께 보내는 시간이 나쁘지만은 않은데…?
+                          <br>
+                          <br>
+                          서울, 혼자가 좋지만 연애는 하고 싶은
+                          <br>
+                          두 남녀의 싱글 라이프가 시작된다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.4</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="art art-ticketing film">
+            <div class="swiper swiper-film">
+              <div class="swiper-wrapper">
+                <!-- .movie-about display:grid -->
+                <div class="swiper-slide"><!-- 1 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">서울의 봄</h3>
+                    <p class="movie-num">1</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list01.jpg" alt="서울의 봄"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>2.8k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1979년 12월 12일, 수도 서울 군사반란 발생
+                          <br>
+                          그날, 대한민국의 운명이 바뀌었다
+                          <br>
+                          <br>
+                          대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시
+                          <br>
+                          12월 12일, 보안사령관 전두광이 반란을 일으키고
+                          <br>
+                          군 내 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다.
+                          <br>
+                          <br>
+                          권력에 눈이 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신을 비롯한
+                          <br>
+                          진압군 사이, 일촉즉발의 9시간이 흘러가는데…
+                          <br>
+                          <br>
+                          목숨을 건 두 세력의 팽팽한 대립
+                          <br>
+                          오늘 밤, 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!
+                          <br>
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 2 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">노량:죽음의 바다</h3>
+                    <p class="movie-num">2</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list02.jpg" alt="노량"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>822</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          임진왜란 발발로부터 7년이 지난 1598년 12월.
+                          <br>
+                          이순신(김윤석)은 왜군의 수장이던 도요토미 히데요시가 갑작스럽게 사망한 뒤 왜군들이 조선에서 황급히 퇴각하려 한다는 것을 알게 된다. 
+                          <br>
+                          <br>
+                          “절대 이렇게 전쟁을 끝내서는 안 된다” 
+                          <br>
+                          <br>
+                          왜군을 완벽하게 섬멸하는 것이 이 전쟁을 올바르게 끝나는 것이라 생각한 이순신은 
+                          <br>
+                          명나라와 조명연합함대를 꾸려 왜군의 퇴각로를 막고 적들을 섬멸하기로 결심한다. 
+                          <br>
+                          <br>
+                          하지만 왜군의 뇌물 공세에 넘어간 명나라 도독 진린(정재영)은 왜군에게 퇴로를 열어주려 하고, 
+                          <br>
+                          설상가상으로 왜군 수장인 시마즈(백윤식)의 살마군까지 왜군의 퇴각을 돕기 위해 노량으로 향하는데…
+                          <br>
+                          <br>
+                          2023년 12월, 모두를 압도할 최후의 전투가 시작된다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.9</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 3 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">아쿠아맨과 로스트 킹덤</h3>
+                    <p class="movie-num">3</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list03.jpg" alt="아쿠아맨과 로스트 킹덤"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>792</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          아틀란티스 왕국을 이끌 왕의 자리에 오른 ‘아쿠아맨’.
+                          <br>
+                          <br>
+                          그 앞에 ‘블랙 만타’가 세상을 뒤흔들 강력한 지배 아이템 ‘블랙 트라이던트’를 손에 넣게 된다.
+                          <br>
+                          <br>
+                          그동안 겪지 못 했던 최악의 위협 속 ‘아쿠아맨’은
+                          <br>
+                          <br>
+                          ‘블랙 만타’와 손을 잡았던 이부 동생 ‘옴’ 없이는 절대적 힘이 부족한 상황.
+                          <br>
+                          <br>
+                          바다를 지배할 슈퍼 히어로가 세상의 판도를 바꾼다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 4 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">말하고 싶은 비밀</h3>
+                    <p class="movie-num">4</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list04.jpg" alt="말하고 싶은 비밀"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>637</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          어느 날 갑자기 고백 사고!?
+                          <br>
+                          마음이 잘못 배달되었다!
+                          <br>
+                          <br>
+                          ‘노조미’는 자신의 책상 서랍 속 ‘좋아해’라는 쪽지를 발견한다.
+                          <br>
+                          쪽지의 주인공은 바로 학교 최고 인기남 ‘세토야마’!
+                          <br>
+                          <br>
+                          전교생이 좋아하는 이상형으로부터 고백받은 설렘도 잠시,
+                          <br>
+                          고백의 주인이 사실은 자신이 아니었음을 알고 망연자실한다.
+                          <br>
+                          <br>
+                          엇갈릴수록 점점 커져가는 너를 향한 마음,
+                          <br>
+                          내일은 너에게 말할 수 있을까?
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 5 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">3일의 휴가</h3>
+                    <p class="movie-num">5</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list05.jpg" alt="3일의 휴가"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>829</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “따님은 어머님을 보거나 목소리를 들을 수 없고요.
+                          <br>
+                          그냥 따님의 행복한 기억만 담고 오시면 됩니다.&quot;
+                          <br>
+                          <br>
+                          죽은 지 3년째 되는 날, ‘복자’(김해숙)는 하늘에서 3일간의 휴가를 받아
+                          <br>
+                          규칙 안내를 맡은 신입 ‘가이드’(강기영)와 함께 지상에 내려온다.
+                          <br>
+                          <br>
+                          미국 명문대학교 교수인 자랑스러운 딸을 볼 생각에 설레던 마음도 잠시,
+                          <br>
+                          돌연 자신이 살던 시골집으로 돌아와 백반 장사를 시작한 ‘진주’(신민아)의 모습에 당황한다.
+                          <br>
+                          <br>
+                          속 타는 엄마의 마음도 모르는 ‘진주’는 자신을 찾아온 단짝 ‘미진’(황보라)과
+                          <br>
+                          엄마의 레시피를 찾아가고, 낯익은 요리를 보자 서로의 추억이 되살아나는데…
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 6 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">???</h3>
+                    <p class="movie-num">6</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list06.jpg" alt=""></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>182</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1979년 12월 12일, 수도 서울 군사반란 발생
+                          <br>
+                          그날, 대한민국의 운명이 바뀌었다
+                          <br>
+                          <br>
+                          대한민국을 뒤흔든 10월 26일 이후, 서울에 새로운 바람이 불어온 것도 잠시
+                          <br>
+                          12월 12일, 보안사령관 전두광이 반란을 일으키고
+                          <br>
+                          군 내 사조직을 총동원하여 최전선의 전방부대까지 서울로 불러들인다.
+                          <br>
+                          <br>
+                          권력에 눈이 먼 전두광의 반란군과 이에 맞선 수도경비사령관 이태신을 비롯한
+                          <br>
+                          진압군 사이, 일촉즉발의 9시간이 흘러가는데…
+                          <br>
+                          <br>
+                          목숨을 건 두 세력의 팽팽한 대립
+                          <br>
+                          오늘 밤, 대한민국 수도에서 가장 치열한 전쟁이 펼쳐진다!
+                          <br>
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 7 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">그대들은 어떻게 살 것인가</h3>
+                    <p class="movie-num">7</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list07.jpg" alt="그대들은 어떻게 살 것인가"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>4.9k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          화재로 어머니를 잃은 11살 소년 ‘마히토’는 아버지와 함께 어머니의 고향으로 간다.
+                          <br>
+                          <br>
+                          어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에
+                          <br>
+                          정체를 알 수 없는 왜가리 한 마리가 나타나고, 저택에서 일하는 일곱 할멈으로부터 왜가리가 살고 있는 탑에 대한 신비로운 이야기를 듣게 된다.
+                          <br>
+                          <br>
+                          그러던 어느 날, ‘마히토’는 사라져버린 새엄마 ‘나츠코’를 찾기 위해 탑으로 들어가고,
+                          <br>
+                          왜가리가 안내하는 대로 이세계(異世界)의 문을 통과하는데…!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 8 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">괴물</h3>
+                    <p class="movie-num">8</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list08.jpg" alt="서울의 봄"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>1.2k</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “우리 동네에는 괴물이 산다”
+                          <br>
+                          <br>
+                          싱글맘 사오리(안도 사쿠라)는 아들 미나토(쿠로카와 소야)의 행동에서 이상 기운을 감지한다.
+                          <br>
+                          <br>
+                          용기를 내 찾아간 학교에서 상담을 진행한 날 이후
+                          <br>
+                          선생님과 학생들의 분위기가 심상치 않게 흐르기 시작하고.
+                          <br>
+                          <br>
+                          “괴물은 누구인가?”
+                          <br>
+                          <br>
+                          한편 사오리는 친구들로부터 따돌림을 당하고 있는
+                          <br>
+                          미나토의 친구 요리(히이라기 히나타)의 존재를 알게 되고
+                          <br>
+                          자신이 아는 아들의 모습과 사람들이 아는 아들의 모습이
+                          <br>
+                          다르다는 사실을 어렴풋이 깨닫는데…
+                          <br>
+                          <br>
+                          태풍이 몰아치던 어느 날, 아무도 몰랐던 진실이 드러난다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>9.6</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 9 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">2024 빈 필하모닉 신년음악회</h3>
+                    <p class="movie-num">9</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list09.jpg" alt="2024 빈 필하모닉 신년음악회"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>305</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          스크린으로 만나는 세계 최고의 음악회
+                          <br>
+                          <br>
+                          2024 빈 필하모닉 신년음악회
+                          <br>
+                          <br>
+                          [상영정보]
+                          <br>
+                          - 상영일시 : 2024년 1월 1일(월) 19:00 *생중계
+                          <br>
+                          - 예매오픈 : 2023년 12월 4일(월) 15:00
+                          <br>
+                          - 공연시간 : 150분 (인터미션 포함)
+                          <br>
+                          <br>
+                          *** 본 공연은 위성 생중계되어, 음향 및 화질이 고르지 못할 수 있으며 자막이 제공되지 않습니다.
+                          <br>
+                          *** 현지 공연 사정 및 중계 상황에 따라 프로그램 및 러닝타임이 변경될 수 있습니다.
+                          <br>
+                          <br>
+                          [공연정보]
+                          <br>
+                          - 상영 일정: 2024년 1월 1일 (토) 19:00~21:30, 150분 (인터미션 25분 포함 예상)
+                          <br>
+                          (현지 공연: 2024년 1월 1일 (토) 11:15~13:45)
+                          <br>
+                          - 현지 공연 장소: 오스트리아 빈 무지크페라인, 황금홀 (Musikverein, Vienna)
+                          <br>
+                          - 지휘: 크리스티안 틸레만 (Christian Thielemann)
+                          <br>
+                          - 연주: 빈 필하모닉 오케스트라 (Vienna Philharmonic Orchestra)
+                          <br>
+                          <br>
+                          [공연소개]
+                          <br>
+                          빈 필하모닉 신년음악회는 매년 빈 무지크페라인 황금홀에서 슈트라우스 일가의 음악과 함께 한 해를 시작하는 세계적인 전통 행사이다.
+                          올해는 독일을 대표하는 지휘자 크리스티안 틸레만이 지휘봉을 잡았다.
+                          2019년 이후 4년 만에 돌아온 그는 브루크너 스페셜리스트라는 명성에 걸맞게 슈트라우스 일가의 음악뿐만 아니라 브루크너의 곡도 초연한다.
+                          브루크너의 탄생 200주년을 기념하여 2020년부터 틸레만과 빈 필하모닉의 브루크너 교향곡 전곡 녹음을 해오며 합을 맞춘 만큼 그 누구보다 생동감 있는 연주회가 될 것이다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span></span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 10 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">나폴레옹</h3>
+                    <p class="movie-num">10</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list10.jpg" alt="나폴레옹"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>930</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          스스로 황제가 된 영웅!
+                          <br>
+                          1793년 혁명의 불꽃이 프랑스 전역을 밝히기 시작한다.
+                          <br>
+                          코르시카 출신의 장교 '나폴레옹'(호아킨 피닉스)은
+                          <br>
+                          혼란스러운 상황 속 국가를 위해 맞서며 영웅으로 떠오른다.
+                          <br>
+                          <br>
+                          한편, 사교 파티에서 영웅 ‘나폴레옹’을 만난 '조제핀'(바네사 커비)은
+                          <br>
+                          자신의 운명을 바꾸기 위해 ‘나폴레옹’을 선택하고
+                          <br>
+                          ‘나폴레옹’은 마침내 스스로 황제의 자리에 오르게 된다.
+                          <br>
+                          <br>
+                          하지만, ‘조제핀’은 계속해서 ‘나폴레옹’을 흔들고,
+                          <br>
+                          ‘나폴레옹’의 야망은 ‘조제핀’과 끝없이 충돌하는데…
+                          <br>
+                          <br>
+                          세상을 정복한 영웅 아무것도 갖지 못한 황제,
+                          <br>
+                          ‘나폴레옹’의 대서사가 펼쳐진다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>7.8</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 11 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">쏘우</h3>
+                    <p class="movie-num">11</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list11.jpg" alt="쏘우"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>248</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          1편의 게임을 마친 존 크레이머 일명 ‘직쏘’는
+                          <br>
+                          암을 치료하러 멕시코로 떠난다.
+                          <br>
+                          <br>
+                          그러나 그곳에서 모든 희망은 절망이 되고
+                          <br>
+                          모든 것이 사기라는 것을 알게 되는데…
+                          <br>
+                          <br>
+                          이제 존의 차례이다.
+                          <br>
+                          이것은 복수가 아니다.
+                          <br>
+                          ‘직쏘’의 세계로 초대받은 모든 사람은
+                          <br>
+                          자신을 구원할 기회를 가진다.
+                          <br>
+                          <br>
+                          그들의 게임이 끝나고,
+                          <br>
+                          직쏘의 게임이 시작된다.
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.5</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide"><!-- 12 -->
+                  <div class="container-grid">
+                    <h3 class="movie-name">12</h3>
+                    <p class="movie-num">12</p>
+                    <div class="imgbox movie-poster">
+                      <a href="#"><img src="./assets/images/film-list12.jpg" alt="싱글 인 서울"></a>
+                    </div>
+                    <div class="movie-best">
+                      <span>916</span>
+                    </div>
+                    <div class="movie-ticketing">
+                      <a href="#">예매</a>
+                    </div>
+                    <div class="movie-about">
+                      <a href="#">
+                        <p class="movie-txt">
+                          “나한테 딱 맞는 사람은 나밖에 없어, 싱글이 답이다!”
+                          <br>
+                          혼자 걷기, 혼자 쉬기, 혼자 먹기, 혼자 살기…
+                          <br>
+                          혼자가 좋은 파워 인플루언서 ‘영호'(이동욱)
+                          <br>
+                          <br>
+                          “사실 혼자인 사람은 없잖아요”
+                          <br>
+                          혼자 썸타기, 나 홀로 그린 라이트…
+                          <br>
+                          유능한 출판사 편집장이지만 혼자는 싫은 ‘현진’(임수정)
+                          <br>
+                          <br>
+                          싱글 라이프를 담은 에세이 &#60;싱글 인 더 시티&#62; 시리즈의 작가와 편집자로 만난 ‘영호’와 ‘현진’.
+                          <br>
+                          생활 방식도 가치관도 서로 다른 두 사람은
+                          <br>
+                          책을 두고 사사건건 대립하면서도, 함께 보내는 시간이 나쁘지만은 않은데…?
+                          <br>
+                          <br>
+                          서울, 혼자가 좋지만 연애는 하고 싶은
+                          <br>
+                          두 남녀의 싱글 라이프가 시작된다!
+                        </p>
+                        <p class="movie-review">
+                          <span>관람평</span> <span>8.4</span>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="sec sec2 benefit">
+        <div class="container">
+          <h2 class="sec-tit">혜택</h2>
+        </div>
+      </section>
+
+      <section class="sec sec3 curation">
+        <div class="container">
+          <h2 class="sec-tit">큐레이션</h2>
+        </div>
+      </section>
+
+      <section class="sec sec4 megainfo">
+        <div class="container">
+          <h2 class="sec-tit">메가박스 안내</h2>
+        </div>
+      </section>
+    </main>
 
 
     <footer id="footer" class="footer"></footer>
@@ -997,26 +3400,118 @@
     // --------------- pc-nav 제어 끝 ---------------
 
 
+    // --------------- 1번섹션(영화예매) 제어 ---------------
+    let navTicketingItem=document.getElementsByClassName('nav-ticketing')[0].children;
+    let aryMovieSlideSection=document.getElementsByClassName('art-ticketing');
+    for(let i=0;i<navTicketingItem.length;i++){
+      navTicketingItem[i].onclick=function(){
+        for(let j=0;j<navTicketingItem.length;j++){
+          fnActiveSet(navTicketingItem[j],'off');
+          fnActiveSet(aryMovieSlideSection[j],'off');
+        }
+        fnActiveSet(navTicketingItem[i],'on');
+        let numValue=navTicketingItem[i].getAttribute('select-num');
+        fnActiveSet(aryMovieSlideSection[numValue],'on');
+      }
+    }
+    // --------------- 1번섹션(영화예매) 제어 끝 ---------------
+
+
     // --------------- swiper ---------------
-    const swiper = new Swiper('.swiper', {
+    const swiperMovie = new Swiper('.swiper-movie', {
       // Optional parameters
-      direction: 'vertical',
-      loop: true,
-
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
+      direction: 'horizontal',
+      loop: false,
+      slidesPerView:1.5,
+      spaceBetween:20,
+      freeMode:true,
+      breakpoints:{
+        640:{
+          slidesPerView:2.2,
+        },
+        760:{
+          slidesPerView:2.8,
+          spaceBetween:30
+        },
+        960:{
+          slidesPerView:3.5,
+        },
+        1280:{
+          slidesPerView:4.2,
+          spaceBetween:40
+        },
       },
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+    });
+    const swiperExp = new Swiper('.swiper-exp', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: false,
+      slidesPerView:1.5,
+      spaceBetween:20,
+      freeMode:true,
+      breakpoints:{
+        640:{
+          slidesPerView:2.2,
+        },
+        760:{
+          slidesPerView:2.8,
+          spaceBetween:30
+        },
+        960:{
+          slidesPerView:3.5,
+        },
+        1280:{
+          slidesPerView:4.2,
+          spaceBetween:40
+        },
       },
-
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
+    });
+    const swiperClassic = new Swiper('.swiper-classic', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: false,
+      slidesPerView:1.5,
+      spaceBetween:20,
+      freeMode:true,
+      breakpoints:{
+        640:{
+          slidesPerView:2.2,
+        },
+        760:{
+          slidesPerView:2.8,
+          spaceBetween:30
+        },
+        960:{
+          slidesPerView:3.5,
+        },
+        1280:{
+          slidesPerView:4.2,
+          spaceBetween:40
+        },
+      },
+    });
+    const swiperFilm = new Swiper('.swiper-film', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: false,
+      slidesPerView:1.5,
+      spaceBetween:20,
+      freeMode:true,
+      breakpoints:{
+        640:{
+          slidesPerView:2.2,
+        },
+        760:{
+          slidesPerView:2.8,
+          spaceBetween:30
+        },
+        960:{
+          slidesPerView:3.5,
+        },
+        1280:{
+          slidesPerView:4.2,
+          spaceBetween:40
+        },
       },
     });
     // --------------- swiper end ---------------
