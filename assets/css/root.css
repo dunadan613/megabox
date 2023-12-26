@@ -1,0 +1,17 @@
+:root{
+  font-family: 'Noto Sans KR',sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #333;
+  --main-color: #14144b;
+  --bg-color-black:#0e0a20;
+  --bg-color-yellow:#ffeb01;
+  --bg-color-header:#120d3c;
+  --bg-color-section:#0e0a20;
+  --color-cyan:#14b9cb;
+  --color-light-text:#9899a8;
+  --color-subtit:#201248;
+  --color-special-text:#797191;
+  --color-nav-text:#666;
+  --color-btn-bottom-text:#2b2c41;
+}

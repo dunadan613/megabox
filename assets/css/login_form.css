@@ -1,0 +1,142 @@
+/* login-form 스타일 */
+.login-form .container{
+  display: grid;
+  background-color: white;
+}
+.login-form h2{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 0.5em;
+  text-align: center;
+  background-color: white;
+  font-size: 1.2em;
+}
+#btn-login-form-close{
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  left: auto;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: transparent;
+}
+#btn-login-form-close::before,
+#btn-login-form-close::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  border-radius: 10%;
+  background-color: var(--bg-color-black);
+}
+#btn-login-form-close::before{
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+#btn-login-form-close::after{
+  transform: translate(-50%,-50%) rotate(135deg);
+}
+#login-section{
+  padding: 0 18px;
+}
+#login-section input{
+  margin: 0.5em 0;
+  padding: 1em 0;
+}
+#login-section input[placeholder]{
+  border-color: transparent;
+  border-bottom-color: #e0e0e0;
+  color: #e0e0e0;
+  font-size: 0.9em;
+}
+#login-section input::placeholder{
+  color: #e0e0e0;
+}
+#login-section .clearfix{
+  margin-top: 10px;
+}
+#login-section .clearfix input{
+  width: auto;
+  margin-right: 8px;
+}
+#login-section .clearfix a{
+  font-weight: 400;
+  color: #3d7db7;
+}
+#login-section .clearfix a span{
+  display: inline-block;
+  border: 1px solid #cccccc;
+  font-size: 0.7em;
+  color: #cccccc;
+  margin-left: 8px;
+  padding: 0 4px;
+}
+#login-section input[type='submit']{
+  margin: 35px 0 25px;
+  border: none;
+  background-color: #6437bf;
+  color: white;
+  font-weight: 300;
+  font-size: 1.1em;
+}
+#login-section .container-grid{
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  text-align: center;
+  padding: 0 30px;
+}
+#login-section .container-grid .imgbox{
+  width: 40px;
+}
+#login-section .login-sns{
+  margin: 30px;
+  padding: 0;
+  justify-items: space-between;
+}
+#login-ad{
+  padding: 0 18px;
+}
+#login-ad img{
+  margin: 0 auto;
+}
+@media(min-width:1280px){
+  .login-form .container{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    grid-template-columns: 1fr 1fr;
+    width: 850px;
+    height: 484px;
+    padding: 55px 20px 0 20px;
+  }
+  .login-form h2{
+    background-color: #503396;
+    color: white;
+    text-align: left;
+    padding: 15px 20px 10px 20px;
+  }
+  #login-section{
+    padding: 0;
+  }
+  #login-section input{
+    padding: 1em 10px;
+  }
+  #login-section input[placeholder]{
+    border:1px solid #d8d9db;
+  }
+  #login-section input[type='submit']{
+    background-color:#e0e0e0;
+    border: 1px solid #e0e0e0;
+    color: #777;
+  }
+  #btn-login-form-close::before,
+  #btn-login-form-close::after{
+    background-color: white;
+  }
+}
