@@ -22,13 +22,7 @@
     <a href="#main">본문 바로가기</a>
   </div>
   <section id="wrap">
-  <!-- wrap::after z-index:1 -->
-
-    <!-- main-ad z-index:2 -->
-    <!-- btn-main-ad-close z-index:1 -->
-    <!-- sec z-index:2 -->
-
-    <header id="header" class="header"><!-- z-index:3 -->
+    <header id="header" class="header">
       <div class="container">
         <h1 class="logo" title=""><a href="./index.html">MEET PLAY SHARE, 메가박스</a></h1>
         <div class="row mobile-nav">
@@ -39,7 +33,6 @@
             <div id="btn-alarm" class="imgbox"><a href="#"><img src="./assets/m-images/ico-alarm.png" alt=""></a></div>
             <div id="btn-nav" class="imgbox"><a href="#"><img src="./assets/m-images/ico-m-burger.png" alt=""></a></div>
           </div>
-
           <div id="nav-form" class="nav-form">
             <div class="container">
               <div class="nav-form-top">
@@ -58,7 +51,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="nav-form-mid">
                 <h2>QUICK MENU</h2>
                 <ul class="container-grid">
@@ -132,8 +124,6 @@
             </div>
           </div>
         </div>
-
-        <!-- .pc-nav-item{display:grid} -->
         <div id="pc-nav" class="row pc-nav">
           <div class="pc-nav-top pc-nav-item">
             <ul>
@@ -147,7 +137,6 @@
               <li title="빠른예매"><a href="#">빠른예매</a></li>
             </ul>
           </div>
-
           <div class="pc-nav-bot pc-nav-item">
             <ul>
               <li title="사이트맵"><a href="#" class="pc-nav-sitemap">사이트맵</a></li>
@@ -158,7 +147,6 @@
               <li title="나의 메가박스"><a href="#" class="pc-nav-mymega">나의 메가박스</a></li>
             </ul>
           </div>
-
           <nav class="pc-nav-main pc-nav-item">
             <ul class="depth1">
               <li class="depth1-item has-depth2">
@@ -185,7 +173,6 @@
                 </ul>
               </li>
             </ul>
-
             <ul class="depth1">
               <li class="depth1-item has-depth2">
                 <a href="#">이벤트</a>
@@ -208,9 +195,8 @@
             </ul>
           </nav>
         </div>
-
         <div id="login-form" class="login-form">
-          <div class="container"><!-- display:grid -->
+          <div class="container">
             <h2>
               로그인
               <div id="btn-login-form-close">X</div>
@@ -1377,7 +1363,6 @@
           <article class="art art-ticketing classic">
             <div class="swiper swiper-classic swiper-ticketing">
               <div class="swiper-wrapper">
-                <!-- .movie-about display:grid -->
                 <div class="swiper-slide"><!-- 1 -->
                   <div class="container-grid">
                     <h3 class="movie-name">서울의 봄</h3>
@@ -1926,7 +1911,6 @@
           <article class="art art-ticketing film">
             <div class="swiper swiper-film swiper-ticketing">
               <div class="swiper-wrapper">
-                <!-- .movie-about display:grid -->
                 <div class="swiper-slide"><!-- 1 -->
                   <div class="container-grid">
                     <h3 class="movie-name">서울의 봄</h3>
@@ -2473,17 +2457,17 @@
             </div>
           </article>
           <nav>
-            <ul class="movie-bot-nav"><!-- display:flex -->
-              <li><!-- display:flex -->
+            <ul class="movie-bot-nav">
+              <li>
                 <input type="search" placeholder="영화명을 입력해주세요">
               </li>
-              <li><!-- display:flex -->
+              <li>
                 <a href="#"><span>상영시간표</span></a>
               </li>
-              <li><!-- display:flex -->
+              <li>
                 <a href="#"><span>박스오피스</span></a>
               </li>
-              <li><!-- display:flex -->
+              <li>
                 <a href="#"><span>빠른예매</span></a>
               </li>
             </ul>
@@ -2491,7 +2475,6 @@
           <div class="move-mouse"><img src="./assets/images/ico-mouse.png" alt="마우스아이콘"></div>
         </div>
       </section>
-
       <section class="sec sec2 benefit">
         <div class="container">
           <h2 class="sec-tit">혜택</h2>
@@ -2601,7 +2584,6 @@
           </div>
         </div>
       </section>
-
       <section class="sec sec3 curation">
         <div class="container">
           <h2 class="sec-tit">큐레이션</h2>
@@ -2650,15 +2632,10 @@
                   </div>
                 </div>
               </div>
-              
-              
-              
-              
             </div>
           </div>
         </div>
       </section>
-
       <section class="sec sec4 megainfo">
         <div class="container">
           <h2 class="sec-tit">메가박스 안내</h2>
@@ -2722,15 +2699,12 @@
           </div>
         </div>
       </section>
-
       <section class="ad">
         <div class="container">
           <div class="imgbox"><a href="#"><img src="./assets/images/banner-bottom.jpg" alt=""></a></div>
         </div>
       </section>
     </main>
-
-
     <footer id="footer" class="footer">
       <div class="container">
         <nav class="footer-nav">
@@ -2765,14 +2739,12 @@
         </div>
       </div>
     </footer>
-
   </section>
   <script src="./assets/js/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="./assets/js/index.js"></script>
   <script>
     const header=document.getElementById('header');
-
     // --------------- 문서로드 이벤트 ---------------
     window.onload=function(){
       // --------------- 위쪽 광고 제어 ---------------
@@ -2783,18 +2755,8 @@
         fnRemoveMainAd();
       }
       // --------------- 위쪽 광고 제어 끝 ---------------
-
     }
     // --------------- 문서로드 이벤트 끝 ---------------
-
-
-    // --------------- 리사이즈 이벤트 ---------------
-    window.onresize=function(){
-      
-    }
-    // --------------- 리사이즈 이벤트 끝 ---------------
-
-
     // --------------- 네비 폼(모바일) 제어 ---------------
     const navForm=document.getElementById('nav-form');
     const btnNavFormOpen=document.getElementById('btn-nav');
@@ -2810,15 +2772,12 @@
       fnNavFormClose(navForm);
     }
     // --------------- 네비 폼(모바일) 제어 끝 ---------------
-
-
     // --------------- 로그인 폼 제어 ---------------
     const loginForm=document.getElementById('login-form');
     const btnAlarm=document.getElementById('btn-alarm');
     const btnTicket=document.getElementById('ticket');
     const btnloginClose=document.getElementById('btn-login-form-close');
     const btnPcLogin=document.getElementById('btn-pc-login');
-    
     btnAlarm.onclick=function(){
       fnLoginFormOpen(loginForm);
     }
@@ -2832,8 +2791,6 @@
       fnLoginFormOpen(loginForm);
     }
     // --------------- 로그인 폼 제어 끝 ---------------
-
-
     // --------------- pc-nav 제어 ---------------
     let aryDepth1Item=document.getElementsByClassName('has-depth2');
     for(let i=0;i<aryDepth1Item.length;i++){
@@ -2852,8 +2809,6 @@
       }
     }
     // --------------- pc-nav 제어 끝 ---------------
-
-
     // --------------- 1번섹션(영화배너) 제어 ---------------
     let navTicketingItem=document.getElementsByClassName('nav-ticketing')[0].children;
     let movieArticle=document.getElementsByClassName('art-ticketing');
@@ -2865,15 +2820,12 @@
         }
         fnSetActive(navTicketingItem[i],'on');
         fnSetActive(movieArticle[i],'on');
-
         // json 제어
         // let selectValue='./assets/ajax/'+navTicketingItem[i].getAttribute('select-movie')+'.json';
         // fnQueryGetJson(selectValue);
       }
     }
     // --------------- 1번섹션(영화배너) 제어 끝 ---------------
-
-
     // --------------- 2번섹션(혜택) 제어  ---------------
     const btnBenefitStart=document.getElementById('btn-benefit-satus');
     const btnBenefitPause=document.getElementById('btn-benefit-pausa');
@@ -2893,8 +2845,6 @@
       fnSetActive(aryBeneficium[i].children[randomValue],'on');
     }
     // --------------- 2번섹션(혜택) 제어 끝 ---------------
-
-
     // --------------- 3번섹션(큐레이션) 제어 ---------------
     let curationPosterImg=document.getElementsByClassName('curation-poster')[0].children[0];
     let curationNavImg=document.getElementsByClassName('curation-nav')[0].children;
@@ -2913,11 +2863,8 @@
       $('.curation-txt').load(`./assets/ajax/curation_data.txt #${curationData}`)
     })
     // --------------- 3번섹션(큐레이션) 제어 끝 ---------------
-
-
     // --------------- swiper ---------------
     const swiperMovie = new Swiper('.swiper-ticketing', {
-      // Optional parameters
       direction: 'horizontal',
       loop: false,
       slidesPerView:1.5,
@@ -2940,10 +2887,7 @@
         },
       },
     });
-
-    //혜택 구역 스와이퍼
     const swiperBeneficium1 = new Swiper('.swiper-benefit1', {
-      // Optional parameters
       effect: 'fade',
       loop: false,
       navigation:{
@@ -2959,7 +2903,6 @@
       }
     });
     const swiperBeneficium2 = new Swiper('.swiper-benefit2', {
-      // Optional parameters
       effect: 'fade',
       loop: false,
     });
@@ -2968,7 +2911,6 @@
     swiperBeneficium1.controller.control=swiperBeneficium2;
     swiperBeneficium2.controller.control=swiperBeneficium1;
     swiperBeneficium1.autoplay.start();
-
     const swiperCuration = new Swiper('.swiper-curation', {
       loop: false,
       slidesPerView:2.5,
